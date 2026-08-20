@@ -20,3 +20,7 @@ file apua
 ````
 <img width="1896" height="141" alt="Näyttökuva 2026-08-20 155307" src="https://github.com/user-attachments/assets/191852a4-4532-422f-a7eb-2b06aa5080ec" />  
 
+
+## Lähteet
+https://www.geeksforgeeks.org/c/compiling-a-c-program-behind-the-scenes/ Käytin tätä koodin kirjoittamiseen ja gcc compiler komentoon.
+Luennolta sain tiedot miten pääsee binääriin käsiksi. 
