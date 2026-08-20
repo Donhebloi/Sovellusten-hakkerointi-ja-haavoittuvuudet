@@ -22,5 +22,5 @@ file apua
 
 
 ## Lähteet
-https://www.geeksforgeeks.org/c/compiling-a-c-program-behind-the-scenes/ Käytin tätä koodin kirjoittamiseen ja gcc compiler komentoon.
+https://www.geeksforgeeks.org/c/compiling-a-c-program-behind-the-scenes/ Käytin tätä koodin kirjoittamiseen ja gcc compiler komentoon.  
 Luennolta sain tiedot miten pääsee binääriin käsiksi. 
