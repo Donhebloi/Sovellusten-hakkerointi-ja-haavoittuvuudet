@@ -123,12 +123,16 @@ Tehtävässä opin käyttämään debuggeria paremmin, miten tutkitaan assembly 
 Valitsin ihan ensimmäisen crackme haasteen tehtäväksi eli **crackme01.64**.    
 Ensiksi ajoin ohjelman random tekstillä jotta näkisin mitä se tulostaa:  
 <img width="441" height="72" alt="image" src="https://github.com/user-attachments/assets/ee744a0e-6e35-40c3-911b-91bda18de91c" />  
+
 Kokeilin **cat** komennolla avata ohjelman mutta eihän siitä saanut mitään selvää:  
 <img width="1893" height="581" alt="image" src="https://github.com/user-attachments/assets/33df0152-496a-4ac5-bcee-a96e53cbeaa7" />  
+
 Tämän jälkeen käytin **strings** komentoa jotta näkisin ohjelman tulostuskelpoiset merkkijonot:  
 <img width="497" height="883" alt="image" src="https://github.com/user-attachments/assets/3de3283e-3984-4078-9156-dbb194f2dc98" />  
+
 Listauksesta löytyy **password1** jota kokeilin ajaa ohjelman kanssa, eli **./crackme01.64 password1**:  
 <img width="432" height="71" alt="image" src="https://github.com/user-attachments/assets/d1b62a6a-9c7f-4eee-afc5-3f1c3092b33a" />  
+
 Ja sehän toimi! Tämä olikin sen verran simppeli tehtävä ettei edes tarvinnut debuggeria käyttää, kun salasana löytyi jo **strings** komennon avulla.  
 
 
