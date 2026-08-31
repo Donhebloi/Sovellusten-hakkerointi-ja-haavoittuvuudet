@@ -60,7 +60,7 @@ Tutkitaan **ls** komennolla mitäs kaikkea tehtävän hakemistosta löytyy.
 Nähdään README.md tiedosto joten luetaan se ensiksi ja seurataan annettuja ohjeita.  
 <img width="760" height="822" alt="image" src="https://github.com/user-attachments/assets/3a133e77-d7b4-4a95-a4d1-983b164d1abe" />  
 
-Tehtävän **passtr** salasana sekä lippu löydetään ihan vaan lähdekoodia tutkimalla. Avataan lähdekoodin tiedosto, **cat passtr.c** ja mitä sisällä on.  
+Tehtävän **passtr** salasana sekä lippu löydetään ihan vaan lähdekoodia tutkimalla. Avataan lähdekoodin tiedosto, **cat passtr.c** ja katsotaan mitä sisällä on.  
 <img width="1288" height="457" alt="image" src="https://github.com/user-attachments/assets/21db8d71-6157-47b3-9e68-323701fa6851" />  
 
 Kokeillaan vielä varmuudenvuoksi toimiiko salasana ja saadanko lippu tulostettua, ajamalla **passtr** ohjelma.  
