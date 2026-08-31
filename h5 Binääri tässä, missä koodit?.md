@@ -31,7 +31,7 @@ Alkuperäinen koodi:
 <img width="337" height="632" alt="image" src="https://github.com/user-attachments/assets/0b9846c3-cc94-4105-9b48-a58e2749c05e" />  
 
 Korjattu koodi:  
-<img width="345" height="636" alt="image" src="https://github.com/user-attachments/assets/7029319d-c018-4031-a70b-c742dc85195a" />
+<img width="345" height="636" alt="image" src="https://github.com/user-attachments/assets/7029319d-c018-4031-a70b-c742dc85195a" />  
 Koodin silmukkaa muutettiin siis:  
 ````
 long result(1);
