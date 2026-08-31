@@ -101,16 +101,17 @@ Kovakoodattu salasana ratkaistaan aikaisemmin löydetyllä kaavalla, eli paritto
 **"anLTj4u8"** merkkijonon pystyy muuntamaan **ASCII** taulukkoa käyttämällä, jonka saa esille **man ascii** komennolla.  
 <img width="1190" height="879" alt="image" src="https://github.com/user-attachments/assets/82f4c7f9-6dd5-4ec6-8143-c7c153d7bd4c" /> (kuvassa vain osa taulukosta, itse taulukko jatkuu vielä)  
 
-````
-a = d
-n = g
-L = O
-T = M
-j = m
-4 = -
-u = x
-8 = 1
-````
+| Indeksi | Merkki | Parillinen/Pariton | Muunnos | Tulos |
+| ------- | ------ | ------------------ | ------- | ----- | 
+| 0       | a      | Parillinen         | +3      | d     | 
+| 1       | n      | Pariton            | -7      | g     |
+| 2       | L      | Parillinen         | +3      | O     |
+| 3       | T      | Pariton            | -7      | M     |
+| 4       | j      | Parillinen         | +3      | m     | 
+| 5       | 4      | Pariton            | -7      | -     | 
+| 6       | u      | Parillinen         | +3      | x     |
+| 7       | 8      | Pariton            | -7      | 1     |  
+
 Eli salasanaksi saatiin **"dgOMm-x1"**.  
 Kokeillaan vielä että toimiiko salasana oikeasti ajamalla **./passtr2o**  
 <img width="883" height="124" alt="image" src="https://github.com/user-attachments/assets/2e14321d-3641-4642-8fac-2ec1af8b942e" />  
