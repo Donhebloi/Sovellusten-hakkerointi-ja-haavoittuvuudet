@@ -32,7 +32,7 @@ Lähdetään tutkimaan minkä takia ohjelma kaatuu ajamalla se **run** komennoll
 <img width="1019" height="210" alt="image" src="https://github.com/user-attachments/assets/8a2b896c-b1ae-4f04-b7a2-065759c9c1f5" />  
 
 Huomataan että ohjelma kaatuu **print_scrambled** funktiossa.  
-Aletaan korjaamaan ongelmaa avaamalla koodi nanossa **nano gdb_example1.c**
+Aletaan korjaamaan ongelmaa avaamalla koodi nanossa **nano gdb_example1.c**  
 Alkuperäinen koodi:  
 <img width="527" height="459" alt="image" src="https://github.com/user-attachments/assets/61e6f213-c564-4e5f-95ab-ec03b1ee8743" />  
 
