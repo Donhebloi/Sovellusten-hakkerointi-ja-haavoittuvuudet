@@ -19,7 +19,7 @@ break 11
 ja ajettiin ohjelma **run** komennolla  
 Valitsin esimerkkinumeroksi **4**  
 Käytimme **step** komentoa päästääksemme factorial funktion sisään  
-Asetettiin **watch n** ja **watch result** 
+Asetettiin **watch n** ja **watch result**   
 Sitten katsottiin **next** ja **continue** komennoilla mitä arvoja **n** ja **result** saavat.  
 <img width="670" height="120" alt="image" src="https://github.com/user-attachments/assets/d801c665-119d-4c10-b9ba-0fc050bf49b4" />  
 
