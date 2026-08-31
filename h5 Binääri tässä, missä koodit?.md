@@ -1,6 +1,51 @@
 # 1 - main.cpp 
 
 Kävimme tunnilla läpi mikä GDB on ja sen perusasiat jonka jälkeen päästiin tekemään esimerkkitehtävää. 
+Esimerkkitehtävässä koodi ei toiminut oikein niin sitä selviteltiin debuggerin avulla.  
+Alunperin kun ohjelma ajettiin niin saatiin tulokseksi **0**:
+<img width="271" height="206" alt="image" src="https://github.com/user-attachments/assets/c2c76bc3-8c26-4929-b409-875440cc2dc8" />  
+Aloitettiin kääntämällä ohjelma  
+````
+g++ main.cpp -g -Wall -Werror -o main-dbg
+````
+ja käynnistämällä debugger  
+````
+gdb ./main-dbg
+````
+Asetettiin breakpoint riville 11
+````
+break 11
+````
+ja ajettiin ohjelma **run** komennolla  
+Valitsin esimerkkinumeroksi **4**  
+Käytimme **step** komentoa päästääkseen factorial funktion sisään  
+Asetettiin **watch n** ja **watch result** 
+Sitten katsottiin **next** ja **continue** komennoilla mitä arvoja **n** ja **result** saavat.  
+<img width="670" height="120" alt="image" src="https://github.com/user-attachments/assets/d801c665-119d-4c10-b9ba-0fc050bf49b4" />  
+
+<img width="1020" height="772" alt="image" src="https://github.com/user-attachments/assets/73091d3a-4583-46a3-950f-c88ef3e0e148" />  
+
+Tässä saadaan ohjelman bugi selville. Ohjelman pitäisi kertoa **result** alkuperäisellä **n** arvolla, mutta se kertoo sen aina yhtä pienemmällä arvolla.  
+Korjataan koodi avaamalla se ja muokkaamalla nanossa **nano main.cpp**  
+Alkuperäinen koodi:  
+<img width="337" height="632" alt="image" src="https://github.com/user-attachments/assets/0b9846c3-cc94-4105-9b48-a58e2749c05e" />  
+
+Korjattu koodi:  
+<img width="345" height="636" alt="image" src="https://github.com/user-attachments/assets/7029319d-c018-4031-a70b-c742dc85195a" />
+Koodiin lisättiin siis:  
+````
+long result(1);
+while(n > 0)
+{
+    result *= n;
+    n--;
+}
+return result;
+````
+Käännetään ohjelma uudelleen **g++ main.cpp -g -Wall -Werror -o main-dbg** ja ajetaan se **./main-dbg**  
+<img width="256" height="99" alt="image" src="https://github.com/user-attachments/assets/711c160a-c858-4ecb-b41a-3c021f66d001" />  
+
+Nyt ohjelma toimii ja tulostaa oikean arvon.  
 
 
 # 2 - Lab0  
