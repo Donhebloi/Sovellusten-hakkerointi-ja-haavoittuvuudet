@@ -63,11 +63,11 @@ Nähdään README.md tiedosto joten luetaan se ensiksi ja seurataan annettuja oh
 Tehtävän **passtr** salasana sekä lippu löydetään ihan vaan lähdekoodia tutkimalla. Avataan lähdekoodin tiedosto, **cat passtr.c** ja katsotaan mitä sisällä on.  
 <img width="1288" height="457" alt="image" src="https://github.com/user-attachments/assets/21db8d71-6157-47b3-9e68-323701fa6851" />  
 
-Kokeillaan vielä varmuudenvuoksi toimiiko salasana ja saadanko lippu tulostettua, ajamalla **passtr** ohjelma.  
+Kokeillaan vielä varmuudenvuoksi toimiiko salasana ja saadaanko lippu tulostettua, ajamalla **passtr** ohjelma.  
 Eli **./passtr** ja sen jälkeen syötetään salasana "sala-hakkeri-321"  
 <img width="913" height="121" alt="image" src="https://github.com/user-attachments/assets/beb5cafa-b2ac-47ed-b819-456ee24b21e0" />  
 
-Salasana toimii niin kuin pitääkin ja saatiin Teron lippu tulostettua.  
+Salasana toimii niin kuin pitääkin ja saatiin Teron lippu tulostettua. **FLAG{Tero-d75ee66af0a68663f15539ec0f46e3b1}**  
 Toisen salasanan ja lipun saaminen on hankalempaa koska ei ole **passtr2o** ohjelman lähdekoodia saatavilla joten selvitetään se debuggerin avulla.
 Debugger auki **gdb ./passtr2o** ja ekana listasin ohjelman funktiot **info functions** :  
 <img width="552" height="457" alt="image" src="https://github.com/user-attachments/assets/5f38f56b-c0d6-4179-b741-9b6468e4e0f0" />  
@@ -75,11 +75,11 @@ Debugger auki **gdb ./passtr2o** ja ekana listasin ohjelman funktiot **info func
 Jonka jälkeen lähdin purkaamaan **main** funktiota, **disassemble main** komennolla:  
 <img width="945" height="884" alt="image" src="https://github.com/user-attachments/assets/c7b4695f-c9ac-463c-bae1-b76ec8bf0100" />  
 
-Main functio näkyy nyt assembly koodina josta voi lähteä etsimään kutsuja muihin funktioihin.  
+Main funktio näkyy nyt assembly koodina josta voi lähteä etsimään kutsuja muihin funktioihin.  
 Koodista löytyy kutsut funktioihin:  
 ````
 call scanf = lukee mitä on syötetty
-call mAsdf3A = Vaikuttaa tarkistusfunktiolta
+call mAsdf3a = Vaikuttaa tarkistusfunktiolta
 jne 0x1119 = Jos tulos ei ole tietty arvo, skipataan EaseEA
 call EaseEAs = Tulostuu vain jos ehto täyttyy
 call printf = Tulostaa jotain, oli se väärin tai ei
@@ -116,8 +116,8 @@ Eli salasanaksi saatiin **"dgOMm-x1"**.
 Kokeillaan vielä että toimiiko salasana oikeasti ajamalla **./passtr2o**  
 <img width="883" height="124" alt="image" src="https://github.com/user-attachments/assets/2e14321d-3641-4642-8fac-2ec1af8b942e" />  
 
-Toimii! Saatiin Larin lippu näkyviin.  
-
+Toimii! Saatiin Larin lippu näkyviin. **FLAG{Lari-rsvRDx04WMBZpuwg4qfYwzdcvVa0oym}**  
+Tehtävässä opin käyttämään debuggeria paremmin, miten tutkitaan assembly koodia, tunnistamaan paremmin funktiokutsuja, funktion parametreista ja x/s komennon käyttötarkoituksen.  
 
 # 5 - Lab3  
 Valitsin ihan ensimmäisen crackme haasteen tehtäväksi eli **crackme01.64**.    
@@ -132,9 +132,12 @@ Listauksesta löytyy **password1** jota kokeilin ajaa ohjelman kanssa, eli **./c
 Ja sehän toimi! Tämä olikin sen verran simppeli tehtävä ettei edes tarvinnut debuggeria käyttää, kun salasana löytyi jo **strings** komennon avulla.  
 
 
+## Lähteet
 
-
-
+Tehtävänannon dynaamisen analyysin luentomateriaali  
+Tehtävänannon GDB Cheat Sheet 
+ASCII manuaali terminaalissa
+Assembly Instructions Guide - https://github.com/7etsuo/x86
 
 
 
