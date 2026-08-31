@@ -18,7 +18,7 @@ break 11
 ````
 ja ajettiin ohjelma **run** komennolla  
 Valitsin esimerkkinumeroksi **4**  
-Käytimme **step** komentoa päästääkseen factorial funktion sisään  
+Käytimme **step** komentoa päästääksemme factorial funktion sisään  
 Asetettiin **watch n** ja **watch result** 
 Sitten katsottiin **next** ja **continue** komennoilla mitä arvoja **n** ja **result** saavat.  
 <img width="670" height="120" alt="image" src="https://github.com/user-attachments/assets/d801c665-119d-4c10-b9ba-0fc050bf49b4" />  
@@ -32,7 +32,7 @@ Alkuperäinen koodi:
 
 Korjattu koodi:  
 <img width="345" height="636" alt="image" src="https://github.com/user-attachments/assets/7029319d-c018-4031-a70b-c742dc85195a" />
-Koodiin lisättiin siis:  
+Koodin silmukkaa muutettiin siis:  
 ````
 long result(1);
 while(n > 0)
@@ -45,7 +45,7 @@ return result;
 Käännetään ohjelma uudelleen **g++ main.cpp -g -Wall -Werror -o main-dbg** ja ajetaan se **./main-dbg**  
 <img width="256" height="99" alt="image" src="https://github.com/user-attachments/assets/711c160a-c858-4ecb-b41a-3c021f66d001" />  
 
-Nyt ohjelma toimii ja tulostaa oikean arvon.  
+Nyt ohjelma toimii ja tulostaa oikean arvon, eli tässä tapauksessa 24.  
 
 
 # 2 - Lab0  
@@ -184,8 +184,8 @@ Ja sehän toimi! Tämä olikin sen verran simppeli tehtävä ettei edes tarvinnu
 ## Lähteet
 
 Tehtävänannon dynaamisen analyysin luentomateriaali  
-Tehtävänannon GDB Cheat Sheet 
-ASCII manuaali terminaalissa
+Tehtävänannon GDB Cheat Sheet  
+ASCII manuaali terminaalissa  
 Assembly Instructions Guide - https://github.com/7etsuo/x86
 
 
