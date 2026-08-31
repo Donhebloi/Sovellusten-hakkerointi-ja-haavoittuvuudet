@@ -2,7 +2,7 @@
 
 Kävimme tunnilla läpi mikä GDB on ja sen perusasiat jonka jälkeen päästiin tekemään esimerkkitehtävää. 
 Esimerkkitehtävässä koodi ei toiminut oikein niin sitä selviteltiin debuggerin avulla.  
-Alunperin kun ohjelma ajettiin niin saatiin tulokseksi **0**:
+Alunperin kun ohjelma ajettiin niin saatiin tulokseksi **0**:  
 <img width="271" height="206" alt="image" src="https://github.com/user-attachments/assets/c2c76bc3-8c26-4929-b409-875440cc2dc8" />  
 Aloitettiin kääntämällä ohjelma  
 ````
