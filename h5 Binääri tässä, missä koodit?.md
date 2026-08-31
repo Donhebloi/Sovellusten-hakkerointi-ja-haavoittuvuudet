@@ -187,6 +187,7 @@ Tehtävänannon dynaamisen analyysin luentomateriaali
 Tehtävänannon GDB Cheat Sheet  
 ASCII manuaali terminaalissa  
 Assembly Instructions Guide - https://github.com/7etsuo/x86
+Claude AI hyödynnetty assembly koodin ymmärtämisessä ja lukemisessa  
 
 
 
