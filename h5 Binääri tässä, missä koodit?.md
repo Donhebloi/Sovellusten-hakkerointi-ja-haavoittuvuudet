@@ -186,7 +186,7 @@ Ja sehän toimi! Tämä olikin sen verran simppeli tehtävä ettei edes tarvinnu
 Tehtävänannon dynaamisen analyysin luentomateriaali  
 Tehtävänannon GDB Cheat Sheet  
 ASCII manuaali terminaalissa  
-Assembly Instructions Guide - https://github.com/7etsuo/x86
+Assembly Instructions Guide - https://github.com/7etsuo/x86  
 Learning to Reverse Engineer with GDB - https://payatu.com/blog/learning-to-reverse-engineer-with-gdb/  
 Claude AI hyödynnetty assembly koodin ymmärtämisessä ja lukemisessa  
 
