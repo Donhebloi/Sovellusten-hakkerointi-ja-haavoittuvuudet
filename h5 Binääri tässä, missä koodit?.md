@@ -2,7 +2,7 @@
 
 Kävimme tunnilla läpi mikä GDB on ja sen perusasiat jonka jälkeen päästiin tekemään esimerkkitehtävää. 
 Esimerkkitehtävässä koodi ei toiminut oikein niin sitä selviteltiin debuggerin avulla.  
-Alunperin kun ohjelma ajettiin niin saatiin tulokseksi **0**:  
+Alun perin kun ohjelma ajettiin niin saatiin tulokseksi **0**:  
 <img width="271" height="206" alt="image" src="https://github.com/user-attachments/assets/c2c76bc3-8c26-4929-b409-875440cc2dc8" />  
 Aloitettiin kääntämällä ohjelma  
 ````
@@ -92,7 +92,7 @@ Pelkästään nanossa tallentaminen ei riitä, pitää ajaa myös debuggerin kom
 ````
 gcc gdb_example1.c -g -Wall -Werror -o gdb_example1-dbg  
 ````
-Sitten mennään debuggeriin **gdb ./gdb_example1** ja ajetaan ohjelma uudestaan **run** komennolla:  
+Sitten mennään debuggeriin **gdb ./gdb_example1-dbg** ja ajetaan ohjelma uudestaan **run** komennolla:  
 <img width="1024" height="725" alt="image" src="https://github.com/user-attachments/assets/9d02f6b5-0103-41cd-867f-a9bfcd25b594" />  
 
 Nähdään että ohjelma menee nyt ongelmitta läpi ja tulostui teksti **Khoor/#zruog1**  
@@ -125,11 +125,11 @@ Koodista löytyy kutsut funktioihin:
 ````
 call scanf = lukee mitä on syötetty
 call mAsdf3a = Vaikuttaa tarkistusfunktiolta
-jne 0x1119 = Jos tulos ei ole tietty arvo, skipataan EaseEA
+jne 0x1119 = Jos tulos ei ole tietty arvo, skipataan EaseEAs
 call EaseEAs = Tulostuu vain jos ehto täyttyy
 call printf = Tulostaa jotain, oli se väärin tai ei
 ````
-Tässä kohtaa vaikuttaa siltä, että **mAsdf3a** tarkistaa salasanan ja **EaseEA** tulostaa halutun lopputuloksen jos salasana on oikein.  
+Tässä kohtaa vaikuttaa siltä, että **mAsdf3a** tarkistaa salasanan ja **EaseEAs** tulostaa halutun lopputuloksen jos salasana on oikein.  
 Lähdetään tutkimaan **mAsdf3a:ta** **disassemble mAsdf3a** komennolla:  
 <img width="785" height="868" alt="image" src="https://github.com/user-attachments/assets/76bca2a1-1f66-434a-b45a-784bb4da3f03" />  
 
@@ -187,6 +187,7 @@ Tehtävänannon dynaamisen analyysin luentomateriaali
 Tehtävänannon GDB Cheat Sheet  
 ASCII manuaali terminaalissa  
 Assembly Instructions Guide - https://github.com/7etsuo/x86
+Learning to Reverse Engineer with GDB - https://payatu.com/blog/learning-to-reverse-engineer-with-gdb/  
 Claude AI hyödynnetty assembly koodin ymmärtämisessä ja lukemisessa  
 
 
