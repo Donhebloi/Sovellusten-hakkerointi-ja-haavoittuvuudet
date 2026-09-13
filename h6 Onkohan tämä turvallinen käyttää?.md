@@ -19,3 +19,27 @@ Huomataan **"README"** tiedosto, joten avataan se ekana **cat** komennolla ja lu
 **"README"** tiedostossa on ohjeet siihen miten jatketaan:  
 <img width="1888" height="282" alt="image" src="https://github.com/user-attachments/assets/742e23ac-aa90-437f-8fac-259ae76f189f" />  
 Eli ekana hoidetaan riippuvuudet kuntoon **./preinstall.sh** komennolla:  
+<img width="819" height="66" alt="image" src="https://github.com/user-attachments/assets/dc2d509c-431f-46ee-96e3-cdd9c2d25517" />  
+Latauksessa minulle tuli seuraavat ongelmat vastaan:  
+````
+Error: Unable to locate package binutils-mips-linux-gnu
+[WARNING] Failed to install binutils-mips-linux-gnu. Skipping.
+mips-linux-gnu-nm: [WARNING] mips-linux-gnu-nm not found.
+````
+Ongelmista huolimatta lähdin silti kokeilemaan ohjeen seuraavaa vaihetta eli **./extract_keys.sh**. Komennon ajamisen jälkeen tuli hirveä litania erilaista tekstiä, mutta siitä tärkein oli:    
+<img width="1041" height="40" alt="image" src="https://github.com/user-attachments/assets/bc2ca398-c63e-411b-9b23-34faeebbd95c" />  
+Eli avaimien extraction onnistui ja skripti kirjoitti RSA-avaimet **"include"** kansioon, aikaisemmista virheilmoituksista huolimatta.  
+Sitten käytin **make** komentoa **src** kansion lähdekoodin kääntämiseen ja avaimien linkittämiseen siihen.  
+<img width="821" height="87" alt="image" src="https://github.com/user-attachments/assets/4a9c3b16-23aa-40d5-802b-5d07e00252ea" />  
+Nyt voi lähteä purkamaan kameran ohjelmistoa **bin/tp-link-decrypt** avulla:  
+````
+bin/tp-link-decrypt ~/Tapo_C200v3_en_1.4.2_Build_250313_Rel.40499n_up_boot-signed_1747894968535.bin
+````
+<img width="1903" height="571" alt="image" src="https://github.com/user-attachments/assets/047bcaee-4e66-4509-9d5a-2b734db8e113" />  
+Nyt näemme TP-linkin ohjelmiston key/iv:n:  
+````
+key/iv:
+KEY=9c6ba1d761e4eee17dfde90cfed603bd
+IV=8778f31423815ce85e9f186b60507edd
+````
+
