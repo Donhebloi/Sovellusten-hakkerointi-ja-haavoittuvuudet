@@ -1,0 +1,14 @@
+# h6 Onkohan tämä turvallinen käyttää?  
+
+Aloitin lataamalla kameran ohjelmiston omaan Kali virtuaalikoneeseen.  
+Lähdin tutkimaan tiedostoa ensiksi **file** komennolla, jotta selviäisi millainen tiedosto on kyseessä:  
+<img width="1471" height="96" alt="image" src="https://github.com/user-attachments/assets/5f9cc158-dc9d-4a36-94fc-3a97cd65c2ca" />  
+File komennon tulokseksi tuli **"data"**, eli tiedosto ei nyt täsmää mihinkään tunnettuun formaattiin.  
+Kokeilin seuraavaksi **binwalk**:ia: 
+<img width="1534" height="213" alt="image" src="https://github.com/user-attachments/assets/397b30b1-9a78-4fdd-8107-2f2b3c5f972e" />  
+**Binwalk** ei nyt löytänyt mitään, joten voidaan olettaa että data on salattu.  
+Tämän jälkeen lähdin hyödyntämään kurssimateriaaleista ja githubista löytyvää **tp-link-decrypt** työkalua.  
+Tein itselleni **decrypt_tool** hakemiston mihin purin ladatun **tp-link-decrypt.tar.gz** tiedoston, **tar xzvf tp-link-decrypt.tar.gz -C decrypt_tool**:    
+<img width="879" height="156" alt="image" src="https://github.com/user-attachments/assets/ac3091a7-eec9-46be-b4ce-a264e978fe1e" />  
+Tarkistin vielä **ls -la** komennolla että tiedosto näkyi purettuna hakemiston sisällä:  
+
