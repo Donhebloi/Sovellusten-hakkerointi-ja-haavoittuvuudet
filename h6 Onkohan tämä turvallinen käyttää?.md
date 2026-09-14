@@ -3,21 +3,21 @@
 ## Johdanto
 
 Tavoitteena oli tutkia Tapo C200 -kameran ohjelmiston turvallisuutta koulussa opituilla menetelmillä. Yritin selvittää ohjelmiston rakennetta, tiedostojärjestelmiä sekä ohjelmiston salasanaa ja salaukseen liittyviä toimintoja.  
-Suoritin tehtävän Kali Linux -virtuaalikoneessa, käyttämällä **file**-, **binwalk**-, **strings**-, **grep**-, **readelf**-, ja GDB-työkaluja.  
-Yritin purkaa ohjelmiston analysoitavaan muotoon jotta voisin tutkia kameran sisältämää Linux-pohjaista tiedostojärjestelmää ja sen ohjelmistoja.  
+Suoritin tehtävän Kali Linux -virtuaalikoneessa, käyttämällä **file**-, **binwalk**-, **strings**-, **grep**-, **readelf**- ja GDB-työkaluja.  
+Yritin purkaa ohjelmiston analysoitavaan muotoon, jotta voisin tutkia kameran sisältämää Linux-pohjaista tiedostojärjestelmää ja sen ohjelmistoja.  
 Tarkoituksena oli selvittää mahdolliset haavoittuvuudet, turvallisuuteen liittyvät ominaisuudet ja mahdolliset ongelmat sekä mahdollisesti saada salasana selville.  
 
 ## Tekninen osuus
 
 Aloitin lataamalla kameran ohjelmiston omaan Kali virtuaalikoneeseen.  
-Lähdin tutkimaan tiedostoa ensiksi **file** komennolla, jotta selviäisi millainen tiedosto on kyseessä:  
+Lähdin tutkimaan tiedostoa ensiksi **file**-komennolla, jotta selviäisi millainen tiedosto on kyseessä:  
 <img width="1471" height="96" alt="image" src="https://github.com/user-attachments/assets/5f9cc158-dc9d-4a36-94fc-3a97cd65c2ca" />  
 
-File komennon tulokseksi tuli **"data"**, eli tiedosto ei nyt täsmää mihinkään tunnettuun formaattiin.  
+File-komennon tulokseksi tuli **"data"**, eli tiedosto ei nyt täsmää mihinkään tunnettuun formaattiin.  
 Kokeilin seuraavaksi **binwalk**:ia: 
 <img width="1534" height="213" alt="image" src="https://github.com/user-attachments/assets/397b30b1-9a78-4fdd-8107-2f2b3c5f972e" />  
 
-**Binwalk** ei nyt löytänyt mitään, joten voidaan olettaa että tiedosto ei ole suoraan analysoitavasa muodossa.  
+**Binwalk**-komento ei nyt löytänyt mitään, joten voidaan olettaa että tiedosto ei ole suoraan analysoitavasa muodossa.  
 Tämän jälkeen lähdin hyödyntämään kurssimateriaaleista ja githubista löytyvää **tp-link-decrypt** työkalua.  
 Tein itselleni **decrypt_tool** hakemiston mihin purin ladatun **tp-link-decrypt.tar.gz** tiedoston, **tar xzvf tp-link-decrypt.tar.gz -C decrypt_tool**:    
 <img width="879" height="156" alt="image" src="https://github.com/user-attachments/assets/ac3091a7-eec9-46be-b4ce-a264e978fe1e" />  
@@ -68,11 +68,11 @@ Avaimen ja IV:n arvo löytyivät TP-linkin omasta julkisesta GPL-paketista, eik�
 Nyt kun siirrytään kotihakemistoon niin huomataan **ls** komennolla uusi tiedosto:  
 <img width="1406" height="36" alt="image" src="https://github.com/user-attachments/assets/0759c4ef-26b6-451c-9258-fa84b6489671" />  
 
-Tämä on ohjelmiston purettu tiedosto, jota voidaan lähteä nyt analysoimaan **file** ja **binwalk** komennoilla.  
-Ensiksi ajoin uudestaan **file** komennon ja se tulosti saman tuloksen kuin viimeksi, eli **"data"**:  
+Tämä on ohjelmiston purettu tiedosto, jota voidaan lähteä nyt analysoimaan **file**- ja **binwalk**-komennoilla.  
+Ensiksi ajoin uudestaan **file**-komennon ja se tulosti saman tuloksen kuin viimeksi, eli **"data"**:  
 <img width="1543" height="97" alt="image" src="https://github.com/user-attachments/assets/82964c0a-76af-4407-b0b6-fc2a313a6d60" />  
 
-Mutta nyt kun tämän jälkeen ajoi uudestaan **binwalk** komennon niin tulostui ihan hirveä määrä kaikkea tietoa:  
+Mutta nyt kun tämän jälkeen ajoi uudestaan **binwalk**-komennon niin tulostui ihan hirveä määrä kaikkea tietoa:  
 <img width="1891" height="660" alt="image" src="https://github.com/user-attachments/assets/04616e73-6e65-43db-abd2-aa26fadbe399" />  
 
 XZ comressed data rivejä on paljon enemmän kuin mitä kuvassa näkyy, mutta kuvasta tärkein havainto on:  
