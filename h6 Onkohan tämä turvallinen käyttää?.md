@@ -1,12 +1,21 @@
 # h6 Onkohan tämä turvallinen käyttää?  
 
+## Johdanto
+
+Tavoitteena oli tutkia Tapo C200 -kameran ohjelmiston turvallisuutta koulussa opituilla menetelmillä. Yritin selvittää ohjelmiston rakennetta, tiedostojärjestelmiä sekä ohjelmiston salasanaa ja salaukseen liittyviä toimintoja.  
+Suoritin tehtävän Kali Linux -virtuaalikoneessa, käyttämällä **file**-, **binwalk**-, **strings**-, **grep**-, **readelf**-, ja GDB-työkaluja.  
+Yritin purkaa ohjelmiston analysoitavaan muotoon jotta voisin tutkia kameran sisältämää Linux-pohjaista tiedostojärjestelmää ja sen ohjelmistoja.  
+Tarkoituksena oli selvittää mahdolliset haavoittuvuudet, turvallisuuteen liittyvät ominaisuudet ja mahdolliset ongelmat sekä mahdollisesti saada salasana selville.  
+
+## Tekninen osuus
+
 Aloitin lataamalla kameran ohjelmiston omaan Kali virtuaalikoneeseen.  
 Lähdin tutkimaan tiedostoa ensiksi **file** komennolla, jotta selviäisi millainen tiedosto on kyseessä:  
 <img width="1471" height="96" alt="image" src="https://github.com/user-attachments/assets/5f9cc158-dc9d-4a36-94fc-3a97cd65c2ca" />  
 File komennon tulokseksi tuli **"data"**, eli tiedosto ei nyt täsmää mihinkään tunnettuun formaattiin.  
 Kokeilin seuraavaksi **binwalk**:ia: 
 <img width="1534" height="213" alt="image" src="https://github.com/user-attachments/assets/397b30b1-9a78-4fdd-8107-2f2b3c5f972e" />  
-**Binwalk** ei nyt löytänyt mitään, joten voidaan olettaa että data on salattu.  
+**Binwalk** ei nyt löytänyt mitään, joten voidaan olettaa että tiedosto ei ole suoraan analysoitavasa muodossa.  
 Tämän jälkeen lähdin hyödyntämään kurssimateriaaleista ja githubista löytyvää **tp-link-decrypt** työkalua.  
 Tein itselleni **decrypt_tool** hakemiston mihin purin ladatun **tp-link-decrypt.tar.gz** tiedoston, **tar xzvf tp-link-decrypt.tar.gz -C decrypt_tool**:    
 <img width="879" height="156" alt="image" src="https://github.com/user-attachments/assets/ac3091a7-eec9-46be-b4ce-a264e978fe1e" />  
@@ -83,7 +92,7 @@ Tämän jälkeen lähdin tutkimaan **strings** komennolla **bin/main**:ia ja yhd
 strings bin/main | grep -iE "passwd|admin|default|login|auth"
 ````
 
-Tästä tulostui selkeä lista mistä näkee täysiä funktionimiä. Kehittäjät eivät ole siis poistaneet mitään debug-symboleita, mikä paljastaa suoraan ohjelman rakenteen, helpottaen reverse engineeringiä, oli se sitten pahantekoon tai vaikkapa juuri kurssitehtävän tekoon.  
+Tästä tulostui selkeä lista merkkijonoja jotka viittaavat ohjelman toiminnallisuuteen. Binääriin jätetyt ohjelmaan liittyvät nimet, debug ja lokitekstit voivat helpottaa analysointia ja reverse engineeringiä.    
 Silmääni iskivät funktiot:  
 **gen_root_passwd** mikä nimen perusteella generoi root salasanan.  
 <img width="271" height="35" alt="image" src="https://github.com/user-attachments/assets/25306a93-123b-49f1-bfd2-45039e31d40b" />  
@@ -91,21 +100,23 @@ Silmääni iskivät funktiot:
 **update_root_passwd_for_encrypt**, mikä voisi tarkoittaa että salasana salataan ennen tallennusta.  
 <img width="507" height="33" alt="image" src="https://github.com/user-attachments/assets/9077106b-48e6-4a81-95bb-ed0c4a64bf8b" />  
 
-**[HUB_MANAGE]root_passwd:%s**, tämä tulostaisi root salasanan suoraan hubiin selväkielisenä, mikä ei ole kovin hyvä juttu jos hyökkääjä saisi käsiinsä laitteen debug-lokit.  
+**[HUB_MANAGE]root_passwd:%s**, tämä voisi tarkoittaa että ohjelmassa on loki- tai viestikenttä, jossa käsitellään rootin salasanaa.  
 <img width="448" height="36" alt="image" src="https://github.com/user-attachments/assets/d2aaea98-2af1-448a-a810-51c78175a641" />  
 
-**factory_passwd**, voisi olla tehdasasetusten salasana.  
+**factory_passwd**, voisi olla tehdasasetusten salasana tai liittyy jotenkin sen käsittelyyn.  
 <img width="263" height="44" alt="image" src="https://github.com/user-attachments/assets/04be3a1a-3b69-4f34-9a1b-b54b0f3328a8" />  
 
-**WWW-Authenticate: Digest realm="%s",algorithm="MD5"**, osa autentikoinnista käyttää MD5, mikä on jo kryptografisesti vanhentunut menetelmä.  
+**WWW-Authenticate: Digest realm="%s",algorithm="MD5"**, binääristä löytyi Digest autentikointiin liittyvä merkkijono, jonka algoritmiksi ilmoitetaan MD5 mikä on jo kryptografisesti vanhentunut menetelmä.  
 <img width="870" height="42" alt="image" src="https://github.com/user-attachments/assets/fa1c9dec-41a0-4c76-ac65-bae57584959c" />  
 
-**auth_rsa_decrypt**, Osa autentikoinnista käyttää taas RSA-salausta
+**auth_rsa_decrypt**, osa autentikoinnista vaikuttaisi käyttävän taas RSA-salausta  
 <img width="294" height="39" alt="image" src="https://github.com/user-attachments/assets/7186f7b4-53fc-41ae-8faa-d3ece06a5f9b" />  
 
-Tästä lähdin tutkimaan debuggerilla **bin/main**:ia ja listasta löytyvää **gen_root_passwd** funktiota:  
+Kuitenkaan pelkän **strings** tulosten perusteella ei pysty varmistamaan mitä nämä merkkijonot oikeasti tekevät.  
+
+Tästä sitten yritin tutkia debuggerilla **bin/main**:ia ja listasta löytyvää **gen_root_passwd** funktiota:  
 <img width="1312" height="717" alt="image" src="https://github.com/user-attachments/assets/c88fe84b-9052-45d5-9b7f-200fd9a20235" />  
-Ja sehän ei onnistunut. Kokeilin disassembloida funktion, mutta se ei onnistunut koska symbolitaulu ei ole käytössä.  
+Ja sehän ei onnistunut. Kokeilin disassembloida funktion, mutta se ei onnistunut koska symbolitaulu ei ole käytössä ja koska käyttämäni debugger ei perustu MIPS-arkkitehtuuriin.  
 Kun tästä ei nyt sitten tullut mitään haluttua tulosta, siirryin kameran dump-tiedoston kimppuun jotta saisin ehkä jotain järkevää tehtyä.  
 Aloitin taas **file** ja **binwalk** komennoilla:  
 <img width="669" height="189" alt="image" src="https://github.com/user-attachments/assets/c1bb1f76-711b-41e0-9308-14d652e5ec02" />  
@@ -114,10 +125,26 @@ Aloitin taas **file** ja **binwalk** komennoilla:
 Dumpissa on U-Bootloader mitä kameran ohjelmiston tiedoissa ei ollut.  
 Seuraavaksi lähdin purkamaan dumppia **binwalk -e  dump-tapo-c200v3-1.4.2.bin**   
 <img width="740" height="60" alt="image" src="https://github.com/user-attachments/assets/287fca54-3c74-42bf-adfc-67ff4da6c63d" />  
-Purkamisen jälkeen tarkistin **ls -la** komennolla löytyykö sieltäkin **squashfs-root** kansiota:  
+Purkamisen jälkeen tarkistin **ls -la** komennolla löytyykö sieltäkin **squashfs-root** kansio:  
 <img width="999" height="33" alt="image" src="https://github.com/user-attachments/assets/529b4781-5003-4c66-af50-e927746bc830" />  
 Ja siellähän se oli.
-Yritin tästä sitten etsiä onko dumpissa mitään selväkielisiä salasanaviittauksia:  
+Yritin tästä sitten etsiä **grep**:illä onko dumpissa mitään selväkielisiä salasanoihin, avaimiin, käyttäjiin ja autentikointiin liittyviä viittauksia.  
+<img width="1893" height="758" alt="image" src="https://github.com/user-attachments/assets/6089d2e3-5a4f-4087-b1f9-83a773a32998" />  
+Tästä ei nyt suoraan paljastunut salasanaa tai mitään arkaluontoista tietoa, mutta näkyviin tuli toimintoja jotka liittyvät admin-salasanan muuttamiseen, käyttäjätileihin, P2P-salasanan sekä AES-avaimen hakemiseen, joita voisi pitää mahdollisina hyökkäyskohteina.    
+Tässä kohtaa alkoi tuntumaan aika toivottamalta, kun ei saanut oikein mitään järkevää tehtyä tai selvitettyä.  
+Ajattelin vielä että voisin **file** komennolla tarkistaa millainen tiedosto **bin/main** on:  
+<img width="1894" height="128" alt="image" src="https://github.com/user-attachments/assets/797913c3-8905-44ab-bb51-2537f3d39001" />  
+Tästä selkeästi huomasi että **bin/main** on stripped, eli binääristä on poistettu symbolitaulun tietoja. Tämä on tietoturvan kannalta hyvä asia koska tämä parantaa ohjelman suojausta analysointa vastaan.    
+Päätin vielä kokeilla **readelf** ja **grep** komennoilla löytää funktiosymboleita jotka viittaisivat salasanaan:  
+<img width="1659" height="82" alt="image" src="https://github.com/user-attachments/assets/3522a814-efd4-4456-bb8d-858959b360e7" />  
+Eipä löytynyt.  
+Tässä kohtaa päätin lopettaa analyysin kanssa painimisen, kun omat taidot loppuivat kesken enkä keksinyt uusia tapoja lähteä tutkimaan ohjelmistoa.  
+
+## Onko mahdollista käyttää hyödyksi löytämiä haavoittuvuuksia?
+
+
+
+
 
 
 
