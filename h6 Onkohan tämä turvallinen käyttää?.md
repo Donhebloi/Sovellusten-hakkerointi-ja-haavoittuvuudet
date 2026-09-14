@@ -191,5 +191,5 @@ Löytöjeni perusteella kameran ohjelmistossa on mahdollisia haavoittuvuuksia ja
 
 What is the MD5 Algorithm? - https://www.geeksforgeeks.org/computer-networks/what-is-the-md5-algorithm/. Luettu 12.9.2026  
 readelf command in Linux with examples - https://www.geeksforgeeks.org/linux-unix/readelf-command-in-linux-with-examples/. Luettu 12.9.2026  
-TP-Link-Decrypt latauslinkki ja ohjeet - https://github.com/robbins/tp-link-decrypt.
+TP-Link-Decrypt latauslinkki ja ohjeet - https://github.com/robbins/tp-link-decrypt.  
 Claude AI hyödynnetty komentojen käyttämisessä ja vinkkien antamisessa.   
