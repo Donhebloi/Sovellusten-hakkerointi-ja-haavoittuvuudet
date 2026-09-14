@@ -17,7 +17,7 @@ File-komennon tulokseksi tuli **"data"**, eli tiedosto ei nyt täsmää mihinkä
 Kokeilin seuraavaksi **binwalk**:ia: 
 <img width="1534" height="213" alt="image" src="https://github.com/user-attachments/assets/397b30b1-9a78-4fdd-8107-2f2b3c5f972e" />  
 
-**Binwalk**-komento ei nyt löytänyt mitään, joten voidaan olettaa että tiedosto ei ole suoraan analysoitavasa muodossa.  
+**Binwalk**-komento ei nyt löytänyt mitään, joten voidaan olettaa että, tiedosto ei ole suoraan analysoitavassa muodossa.  
 Tämän jälkeen lähdin hyödyntämään kurssimateriaaleista ja githubista löytyvää **tp-link-decrypt** työkalua.  
 Tein itselleni **decrypt_tool** hakemiston mihin purin ladatun **tp-link-decrypt.tar.gz** tiedoston, **tar xzvf tp-link-decrypt.tar.gz -C decrypt_tool**:    
 <img width="879" height="156" alt="image" src="https://github.com/user-attachments/assets/ac3091a7-eec9-46be-b4ce-a264e978fe1e" />  
@@ -46,8 +46,8 @@ mips-linux-gnu-nm: [WARNING] mips-linux-gnu-nm not found.
 Ongelmista huolimatta lähdin silti kokeilemaan ohjeen seuraavaa vaihetta eli **./extract_keys.sh**. Komennon ajamisen jälkeen tuli hirveä litania erilaista tekstiä, mutta siitä tärkein oli:    
 <img width="1041" height="40" alt="image" src="https://github.com/user-attachments/assets/bc2ca398-c63e-411b-9b23-34faeebbd95c" />  
 
-Eli avaimien extraction onnistui ja skripti kirjoitti RSA-avaimet **"include"** kansioon, aikaisemmista virheilmoituksista huolimatta.  
-Sitten käytin **make** komentoa **src** kansion lähdekoodin kääntämiseen ja avaimien linkittämiseen siihen.  
+Eli avainten extraction onnistui ja skripti kirjoitti RSA-avaimet **"include"** kansioon, aikaisemmista virheilmoituksista huolimatta.  
+Sitten käytin **make** komentoa **src** kansion lähdekoodin kääntämiseen ja avainten linkittämiseen siihen.  
 <img width="821" height="87" alt="image" src="https://github.com/user-attachments/assets/4a9c3b16-23aa-40d5-802b-5d07e00252ea" />  
 
 Nyt voi lähteä purkamaan kameran ohjelmistoa **bin/tp-link-decrypt** avulla:  
@@ -64,7 +64,7 @@ KEY=9c6ba1d761e4eee17dfde90cfed603bd
 IV=8778f31423815ce85e9f186b60507edd
 ````
 
-Avaimen ja IV:n arvo löytyivät TP-linkin omasta julkisesta GPL-paketista, eikä niiden löytämiseen tarvinnut käyttää brute force murtoa. Tässä tulee confidentialy näkökulma mieleen, sillä kuka tahansa voi lukea ohjelmiston sisällön, eikä vain valmistaja.  
+Avaimen ja IV:n arvo löytyivät TP-linkin omasta julkisesta GPL-paketista, eikä niiden löytämiseen tarvinnut käyttää brute force hyökkäystä. Tässä tulee luottamuksellisuuden näkökulma mieleen, sillä kuka tahansa voi lukea ohjelmiston sisällön, eikä vain valmistaja.  
 Nyt kun siirrytään kotihakemistoon niin huomataan **ls** komennolla uusi tiedosto:  
 <img width="1406" height="36" alt="image" src="https://github.com/user-attachments/assets/0759c4ef-26b6-451c-9258-fa84b6489671" />  
 
@@ -113,8 +113,8 @@ strings bin/main | grep -iE "passwd|admin|default|login|auth"
 ````
 
 Tästä tulostui selkeä lista merkkijonoja jotka viittaavat ohjelman toiminnallisuuteen. Binääriin jätetyt ohjelmaan liittyvät nimet, debug ja lokitekstit voivat helpottaa analysointia ja reverse engineeringiä.    
-Silmääni iskivät funktiot:  
-**gen_root_passwd** mikä nimen perusteella generoi root salasanan.  
+Silmääni iskivät nämä merkkijonot:  
+**gen_root_passwd** mikä viittaa nimensä perusteella root-salasanan generointiin.  
 <img width="271" height="35" alt="image" src="https://github.com/user-attachments/assets/25306a93-123b-49f1-bfd2-45039e31d40b" />  
 
 **update_root_passwd_for_encrypt**, mikä voisi tarkoittaa että salasana salataan ennen tallennusta.  
@@ -126,7 +126,7 @@ Silmääni iskivät funktiot:
 **factory_passwd**, voisi olla tehdasasetusten salasana tai liittyy jotenkin sen käsittelyyn.  
 <img width="263" height="44" alt="image" src="https://github.com/user-attachments/assets/04be3a1a-3b69-4f34-9a1b-b54b0f3328a8" />  
 
-**WWW-Authenticate: Digest realm="%s",algorithm="MD5"**, binääristä löytyi Digest autentikointiin liittyvä merkkijono, jonka algoritmiksi ilmoitetaan MD5 mikä on jo kryptografisesti vanhentunut menetelmä.  
+**WWW-Authenticate: Digest realm="%s",algorithm="MD5"**, binääristä löytyi Digest autentikointiin liittyvä merkkijono, jonka algoritmiksi ilmoitetaan MD5, mikä on jo kryptografisesti vanhentunut menetelmä.  
 <img width="870" height="42" alt="image" src="https://github.com/user-attachments/assets/fa1c9dec-41a0-4c76-ac65-bae57584959c" />  
 
 **auth_rsa_decrypt**, osa autentikoinnista vaikuttaisi käyttävän taas RSA-salausta  
@@ -137,7 +137,7 @@ Kuitenkaan pelkän **strings** tulosten perusteella ei pysty varmistamaan mitä 
 Tästä sitten yritin tutkia debuggerilla **bin/main**:ia ja listasta löytyvää **gen_root_passwd** funktiota:  
 <img width="1312" height="717" alt="image" src="https://github.com/user-attachments/assets/c88fe84b-9052-45d5-9b7f-200fd9a20235" />  
 
-Ja sehän ei onnistunut. Kokeilin disassembloida funktion, mutta se ei onnistunut koska symbolitaulu ei ole käytössä ja koska käyttämäni debugger ei perustu MIPS-arkkitehtuuriin.  
+Ja sehän ei onnistunut. Kokeilin disassembloida funktion, mutta se ei onnistunut koska symbolitiedot eivät ole käytössä ja koska käyttämäni debugger ei perustu MIPS-arkkitehtuuriin.  
 Kun tästä ei nyt sitten tullut mitään haluttua tulosta, siirryin kameran dump-tiedoston kimppuun jotta saisin ehkä jotain järkevää tehtyä.  
 Aloitin taas **file** ja **binwalk** komennoilla:  
 <img width="669" height="189" alt="image" src="https://github.com/user-attachments/assets/c1bb1f76-711b-41e0-9308-14d652e5ec02" />  
@@ -145,7 +145,7 @@ Aloitin taas **file** ja **binwalk** komennoilla:
 **file** komennosta tulostui taas sama **"data"** ja **binwalkista** hirveä litania tietoa, mutta dumpin tiedoissa oli uutta tietoa:  
 <img width="1913" height="88" alt="image" src="https://github.com/user-attachments/assets/5b36bf7c-cf14-4aaa-9856-fdf439a8ffeb" />  
 
-Dumpissa on U-Bootloader mitä kameran ohjelmiston tiedoissa ei ollut.  
+Dumpista löytyi U-Boot-Bootloader mitä kameran ohjelmiston tiedoissa ei ollut.  
 Seuraavaksi lähdin purkamaan dumppia **binwalk -e  dump-tapo-c200v3-1.4.2.bin**   
 <img width="740" height="60" alt="image" src="https://github.com/user-attachments/assets/287fca54-3c74-42bf-adfc-67ff4da6c63d" />  
 
@@ -156,12 +156,12 @@ Ja siellähän se oli.
 Yritin tästä sitten etsiä **grep**:illä onko dumpissa mitään selväkielisiä salasanoihin, avaimiin, käyttäjiin ja autentikointiin liittyviä viittauksia.  
 <img width="1893" height="758" alt="image" src="https://github.com/user-attachments/assets/6089d2e3-5a4f-4087-b1f9-83a773a32998" />  
 
-Tästä ei nyt suoraan paljastunut salasanaa tai mitään arkaluontoista tietoa, mutta näkyviin tuli toimintoja jotka liittyvät admin-salasanan muuttamiseen, käyttäjätileihin, P2P-salasanan sekä AES-avaimen hakemiseen, joita voisi pitää mahdollisina hyökkäyskohteina.    
+Tästä ei nyt suoraan paljastunut salasanaa tai mitään arkaluontoista tietoa, mutta näkyviin tuli toimintoja, jotka liittyvät admin-salasanan muuttamiseen, käyttäjätileihin, P2P-salasanan sekä AES-avaimen hakemiseen, joita voisi pitää mahdollisina hyökkäyskohteina.    
 Tässä kohtaa alkoi tuntumaan aika toivottamalta, kun ei saanut oikein mitään järkevää tehtyä tai selvitettyä.  
 Ajattelin vielä että voisin **file** komennolla tarkistaa millainen tiedosto **bin/main** on:  
 <img width="1894" height="128" alt="image" src="https://github.com/user-attachments/assets/797913c3-8905-44ab-bb51-2537f3d39001" />  
 
-Tästä selkeästi huomasi että **bin/main** on stripped, eli binääristä on poistettu symbolitaulun tietoja. Tämä on tietoturvan kannalta hyvä asia koska tämä parantaa ohjelman suojausta analysointa vastaan.    
+Tästä selkeästi huomasi että **bin/main** on stripped, eli binääristä on poistettu symbolitaulun tietoja. Tämä on tietoturvan kannalta hyvä asia koska stripped parantaa ohjelman suojausta analysointa vastaan.    
 Päätin vielä kokeilla **readelf** ja **grep** komennoilla löytää funktiosymboleita jotka viittaisivat salasanaan:  
 <img width="1659" height="82" alt="image" src="https://github.com/user-attachments/assets/3522a814-efd4-4456-bb8d-858959b360e7" />  
 
@@ -180,12 +180,15 @@ Löytyi myös MD5 merkkijono, joka on jo kryptografisesti vanhentunut menetelmä
 
 ## Yhteenveto
 
-Onnistuin purkamaan ohjelmiston analysoitavaan muotoon, minkä jälkeen sen rakennetta ja sisältöä pystyi tutkimaan. **binwalk**:in avulla ohjelmistosta löytyi Linux-pohjainen MIPS-ympäristö ja squashfs-tiedostot, joita pystyi tutkimaan tarkemmin.  
+Onnistuin purkamaan ohjelmiston analysoitavaan muotoon, minkä jälkeen sen rakennetta ja sisältöä pystyi tutkimaan. **binwalk**:in avulla ohjelmistosta löytyi Linux-pohjainen MIPS-ympäristö ja squashfs-tiedostojärjestelmä, joita pystyi tutkimaan tarkemmin.  
+En onnistunut pääsemään salasanaan käsiksi.  
 **strings**- ja **grep**-komennoilla löytyi useita autentikointiin, salasanoihin ja salaukseen liittyviä merkkijonoja sekä kameran dumpista löytyi toimintoja jotka liittyvät ylläpitäjän salasanan muuttamiseen, P2P-salasanan ja AES-avaimen hakemiseen, mutta en onnistunut suoraan todistamaan miten näitä voisi hyödyntää haavoittuvuutena.  
 Yritin GDB-debuggerin avulla tutkia root-salasanan generointiin liittyvää toimintoa, mutta se ei onnistunut. En myöskään löytänyt dumpista suoraan selväkielistä salasanaa tai mitään muuta vastaavaa arkaluontoista tietoa.  
 Oma tutkimus osoitti, että kameran ohjelmistoon pääsee käsiksi ja sieltä voi löytää tietoturvan kannalta kiinnostavia kohtia ilman sen isompaa hyökkäystä laitteeseen.  
-Omat löytöjen perusteella kameran ohjelmistossa on mahdollisia haavoittuvuuksia ja hyökkäyskohtia, mutta niiden todellinen hyödynnettävyys vaatisi lisätutkimusta ja taitoja. 
+Löytöjeni perusteella kameran ohjelmistossa on mahdollisia haavoittuvuuksia ja hyökkäyskohtia, mutta niiden todellinen hyödynnettävyys vaatisi lisätutkimusta ja taitoja. 
 
 ## Lähteet
 
 
+Claude AI hyödynnetty komentojen käyttämisessä ja vinkkien antamisessa.   
+What is the MD5 Algorithm? - https://www.geeksforgeeks.org/computer-networks/what-is-the-md5-algorithm/. Luettu 12.9.2026  
