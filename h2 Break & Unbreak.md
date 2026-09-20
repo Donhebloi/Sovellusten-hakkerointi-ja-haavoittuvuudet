@@ -1,5 +1,6 @@
 # a) Break into 010-staff-only.
 
+
 Aloitin ensiksi lataamalla ja unzippaamalla Teron tehtävät:  
 ````
 wget https://terokarvinen.com/hack-n-fix/teros-challenges.zip
@@ -41,6 +42,7 @@ SUPERADMIN%%rootALL-FLAG{Tero-e45f8764675e4463db969473b6d0fcdd}
 
 # Fix the 010-staff-only vulnerability from source code. Demonstrate with a test that your solution works.
 
+
 Seuraavaksi sitten piti etsiä koodista haavoittuvuus ja korjata se. Avasin koodin microlla, **micro staff-only.py** ja lähdin etsimään virhettä. Etsin koodista kohtaa jossa PIN-koodi liitetään SQL-kyselyyn. Tämä löytyi riviltä 22, mistä sitten virhe selvisi:  
 <img width="1057" height="36" alt="image" src="https://github.com/user-attachments/assets/ae9b99e3-09da-4357-b0f5-4db0214bb559" />  
 
@@ -56,6 +58,7 @@ Nyt ei tullut lippua näkyviin! Eli haavoittuvuuden korjaaminen onnistui. Kokeil
 "Your password is Somedude" tuli näkyviin, joten ohjelma toimii normaalisti.  
 
 # Solve dirfuzt-1 from the article Karvinen 2023: Find Hidden Web Directories - Fuzz URLs with ffuf.
+
 
 Aloitin lataamalla ffufin ja ffufia varten tarvittavan sanalistan: 
 ````
@@ -95,6 +98,7 @@ Admin lippu FLAG{tero-wpadmin-3364c855a2ac87341fc7bcbda955b580}
 
 # d) Break into 020-your-eyes-only.
 
+
 Aloitin siirtymällä tehtävänkansioon ja tekemällä ympäristön tehtävää varten:  
 ````
 cd challenges/020-your-eyes-only
@@ -107,6 +111,7 @@ source virtualenv/bin/activate
 <img width="934" height="388" alt="image" src="https://github.com/user-attachments/assets/2ac9a9bd-abe7-443c-b7ba-8f279d88ced9" />  
 
 Ympäristön valmistumisen jälkeen aloitin Djangon asennuksen. Ensiksi avasin **cat** komennolla **requirements.txt** tiedoston ja sen jälkeen latasin siellä näkyvän Django version.  
+
 <img width="993" height="318" alt="image" src="https://github.com/user-attachments/assets/c4e215b8-626f-46cd-a5e2-8659c4c7ffc0" />  
 
 Sitten rupesin päivittämään tietokantaa:  
