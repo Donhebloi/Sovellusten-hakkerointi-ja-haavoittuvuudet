@@ -1,3 +1,23 @@
+# x) Read/watch/listen and summarize. 
+
+
+OWASP - Broken access Control
+- Tarkoittaa sitä, että käyttäjä pääsee käsiksi tietoihin tai toimintoihin, joihin hänellä ei pitäisi olla pääsyä.
+- Pitäisi toteuttaa luotettavan palvelimen puolella tai palvelittomissa API-rajapinnoissa, joissa hyökkääjä ei pääse muokkaamaan pääsyoikeuksien tarkistusta tai metatietoja.
+
+Karvinen - Fuzzing URLs with ffuf
+- ffuf työkalun avulla etsitään verkkopalvelimelta piilotettuja hakemistoja ja sivuja automaattisesti käyttämällä sanalistaa.
+- Tuloksia voidaan suodattaa esim. HTTP-statuksen, vastauksen koon tai sanojen määrän perusteella.
+
+PortSwigger - Access Control Vulnerabilities
+- Pääsynhallinta määrittää, kuka saa käyttää tiettyjä tietoja tai toimintoja.
+- Vertikaalinen eskalointi on sitä kun käyttäjä saa käyttöoikeudet toimintoihin, joihin hänellä ei ole oikeutta. Horisontaalinen eskalointi on sitä, kun käyttäjä saa käyttöoikeudet toisen käyttäjän resursseihin.
+
+Karvinen - Report Writign
+- Hyvä tekninen raportti kertoo selkeästi, mitä ja miten tehtiin, mitä havaittiin, onnistuiko, vai eikö onnistunut.
+- Raportin pitäisi olla loogisesti jäsennelty ja toistettava.   
+
+
 # a) Break into 010-staff-only.
 
 
