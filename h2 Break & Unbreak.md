@@ -21,7 +21,7 @@ Karvinen - Report Writign
 # a) Break into 010-staff-only.
 
 
-Aloitin ensiksi lataamalla ja unzippaamalla Teron tehtävät:  
+Aloitin ensiksi lataamalla ja unzippaamalla Teron tehtävät kotihakemistooni:  
 ````
 wget https://terokarvinen.com/hack-n-fix/teros-challenges.zip
 unzip teros-challenges.zip
@@ -75,7 +75,7 @@ Tästä sitten kokeilin samaa injektiota, eli muutin **number**:in **text** muut
 Nyt ei tullut lippua näkyviin! Eli haavoittuvuuden korjaaminen onnistui. Kokeilin vielä syöttää "123" PIN-koodin salasanakenttään jotta näkisin että ohjelma toimii normaalisti:  
 <img width="699" height="246" alt="image" src="https://github.com/user-attachments/assets/6d4afd7f-29d3-48e2-a1fc-3fe299a1f815" />  
 
-"Your password is Somedude" tuli näkyviin, joten ohjelma toimii normaalisti.  
+"Your password is Somedude" tuli näkyviin, eli ohjelma toimii normaalisti.  
 
 # Solve dirfuzt-1 from the article Karvinen 2023: Find Hidden Web Directories - Fuzz URLs with ffuf.
 
