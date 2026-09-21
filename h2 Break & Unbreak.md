@@ -191,7 +191,7 @@ http://127.0.0.1:8000/admin-console/
 ````
 <img width="1201" height="523" alt="image" src="https://github.com/user-attachments/assets/99e93df0-4f5b-41f3-89b8-e19c78d2dfcc" />  
 
-Pääsin admin consoleen. Ohjelmoinnissa on siis käynyt virhe, **admin-dashboard**:ille on annettu oikeat oikeudet, kun taas **admin-console**:lle ei ole, minkä takia admin consoleen pääsee käsiksi.  
+Pääsin admin consoleen. Tässä kohtaa voisi päätellä, että ohjelmoinnissa on käynyt virhe. **admin-dashboard**:ille on annettu oikeat oikeudet, kun taas **admin-console**:lle ei ole, minkä takia admin consoleen pääsee käsiksi.  
 
 # e) Fix the 020-your-eyes-only vulnerability. Demonstrate with a test that your solution works.
 
@@ -220,7 +220,7 @@ Se oli edelleenkin sama 403 Forbidden. Sitten menin **http://127.0.0.1:8000/admi
 
 <img width="631" height="233" alt="image" src="https://github.com/user-attachments/assets/f03dbbba-351b-428a-962d-b4049c41a644" />  
 
-Ja nyt sekin on Forbidden! 
+Ja nyt sekin on Forbidden! Enään ei pääse admin sivuille perus käyttäjänä. 
 
 
 ## Lähteet
@@ -232,3 +232,5 @@ Karvinen: Raportin kirjoittaminen - https://terokarvinen.com/2006/raportin-kirjo
 Karvinen: Hack'n Fix - https://terokarvinen.com/hack-n-fix/#tips. Luettu 20.9.2026.  
 Niinimets: h2 - Break & unbreak - https://rbin.dev/writing/SH24-002. Luettu 20.9.2026.  
 Mdn: 301 Moved Permanently - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/301. Luettu 20.9.2026.  
+GitHub: ffuf help page - https://github.com/ffuf/ffuf. Luettu 20.9.2026.   
+Claude AI on käytetty apuna koodien kanssa.  
