@@ -13,7 +13,7 @@ PortSwigger - Access Control Vulnerabilities
 - Pääsynhallinta määrittää, kuka saa käyttää tiettyjä tietoja tai toimintoja.
 - Vertikaalinen eskalointi on sitä kun käyttäjä saa käyttöoikeudet toimintoihin, joihin hänellä ei ole oikeutta. Horisontaalinen eskalointi on sitä, kun käyttäjä saa käyttöoikeudet toisen käyttäjän resursseihin.
 
-Karvinen - Report Writign
+Karvinen - Report Writing
 - Hyvä tekninen raportti kertoo selkeästi, mitä ja miten tehtiin, mitä havaittiin, onnistuiko, vai eikö onnistunut.
 - Raportin pitäisi olla loogisesti jäsennelty ja toistettava.   
 
