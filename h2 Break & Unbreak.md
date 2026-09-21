@@ -117,7 +117,7 @@ Tästä sitten tein ensimmäisen ffuf ajon, jossa lähdin tutkimaan **common.txt
 
 <img width="1372" height="873" alt="image" src="https://github.com/user-attachments/assets/bfefd601-973c-4b52-b6fa-c2da1f7c1032" />  
 
-Tästä tulostui ihan hirveä määrä erilaista tietoa, jota pitäisi filtteröidä, jotta löytäisi mitään kiinnostavaa. Melkein kaikilta riveiltä löytyi tämä sama tieto: **[Status: 200, Size: 154, Words: 9, Lines: 10, Duration: 0ms]**
+Tästä tulostui ihan hirveä määrä erilaista tietoa, jota pitäisi filtteröidä, jotta löytäisi mitään kiinnostavaa. Melkein kaikilta riveiltä löytyi tämä sama tieto: **[Status: 200, Size: 154, Words: 9, Lines: 10, Duration: 0ms]**  
 Lähdin filtteröimään listaa koon mukaan **ffuf -w common.txt -u http://127.0.0.2:8000/FUZZ -fs 154**:  
 
 <img width="1330" height="879" alt="image" src="https://github.com/user-attachments/assets/2729523e-4813-4b72-a918-f28393641d42" />  
