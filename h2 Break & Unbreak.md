@@ -1,3 +1,9 @@
+# Ympäristö
+
+
+
+
+
 # x) Read/watch/listen and summarize. 
 
 
@@ -30,14 +36,14 @@ unzip teros-challenges.zip
 
 <img width="537" height="123" alt="image" src="https://github.com/user-attachments/assets/84b020a3-45bd-485f-84b1-9f418b728fe4" />  
 
-Siirryin **cd challenges/10-staff-only/** komennolla tehtävään ja pääsin aloittamaan tehtävän **python3 staff-only.py** komennolla:  
+Siirryin **cd challenges/010-staff-only/** komennolla tehtävään ja pääsin aloittamaan tehtävän **python3 staff-only.py** komennolla:  
 <img width="771" height="239" alt="image" src="https://github.com/user-attachments/assets/23b4f0a7-4800-4024-9adc-867e1e67babf" />  
 
-Siirryin ohjelman antamaan **http://127.0.0.1:500** linkkiin.  
+Siirryin ohjelman antamaan **http://127.0.0.1:5000** linkkiin.  
 Tehtävän ongelmana on se, että salasanakenttään ei voi syöttää muuta kuin numeroita:  
 <img width="937" height="396" alt="image" src="https://github.com/user-attachments/assets/b6a2e6ac-9a11-4ca5-88b9-60f016c00264" />  
 
-Lähdin tutkimaan sivustoa F12 developer tools työkalulla. Avasin **Element picker** työkalun **Cntrl+Shift+C**:llä, jonka avulla pääsin näkemään sivun htlm koodin.  
+Lähdin tutkimaan sivustoa F12 developer tools työkalulla. Avasin **Element picker** työkalun **Ctrl+Shift+C**:llä, jonka avulla pääsin näkemään sivun html koodin.  
 <img width="517" height="185" alt="image" src="https://github.com/user-attachments/assets/c0d1dc1c-0c65-42f5-b753-6c1bc3ce2632" />  
 
 Koodista paljastui **input type="number"**, minkä takia salasanakenttään ei pysty syöttämään muuta kuin numeroita. Muutin **number**:in **text** muuttujaksi:  
@@ -45,7 +51,7 @@ Koodista paljastui **input type="number"**, minkä takia salasanakenttään ei p
 
 Nyt kun kokeili syöttää tekstiä salasanakenttään niin ei tullut enään "Please enter a number" promptia, eli Client puolen tarkistuksen onnistui kiertämään.    
 Nyt pystyi lähtemään kokeilemaan SQL-injektiota. Muutin taas **number**:in **text** muuttujaksi ja kokeilin syöttää **' OR 1=1--** salasanakenttään.  
-Tästä sain vastaukseksi "Your password is foo" ja huomasin että **' OR 1=1--** ehto on nyt sivun htlm koodissa. Eli **' OR 1=1--** ei ollut mikään turha yritys, vaikka se ei nyt täysin onnistunut.  
+Tästä sain vastaukseksi "Your password is foo" ja huomasin että **' OR 1=1--** ehto on nyt sivun html koodissa. Eli **' OR 1=1--** ei ollut mikään turha yritys, vaikka se ei nyt täysin onnistunut.  
 <img width="456" height="157" alt="image" src="https://github.com/user-attachments/assets/3b9cda6f-a628-45bb-ac30-efc84a9fbf84" />  
 
 <img width="514" height="110" alt="image" src="https://github.com/user-attachments/assets/9d0fbb24-c205-4ae7-918c-453e05a703d8" />  
@@ -89,7 +95,7 @@ wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/
 Sitten latasin **dirfuzt-1** tehtävän ja annoin sille tarvittavat oikeudet **chmod u+x dirfuzt-1**. Nyt tehtävän pystyy ajamaan:  
 <img width="538" height="218" alt="image" src="https://github.com/user-attachments/assets/4e4b07b0-6f80-4b7e-8b93-04b222eaf99c" />  
 
-Nyt kun avaa linkin, avautuu "dirfutz-1 - Nothing, nil, null, nada." sivusto:  
+Nyt kun avaa linkin, avautuu "dirfuzt-1 - Nothing, nil, null, nada." sivusto:  
 <img width="764" height="319" alt="image" src="https://github.com/user-attachments/assets/60d70e39-a490-4dea-bf59-ba611ddaf275" />  
 
 Tästä sitten tein ensimmäisen ffuf ajon, jossa lähdin tutkimaan **common.txt**:iä ja kohde URL:ää, komennolla **ffuf -w common.txt -u http://127.0.0.2:8000/FUZZ**.
@@ -153,7 +159,7 @@ Loin sivustolle käyttäjän, jonka jälkeen pääsi "show my data" sivulle, mut
 
 403 Forbidden viittaa siihen että pääsy on kielletty oikeuksien puutteen takia joten lähdin tutkimaan asiaa.  
 Lähdin fuzzaamaan Django-sovellusta **ffuf -w common.txt -u http://127.0.0.1:8000/FUZZ -t 10**.   
-Materiaaleissa lukee että kehitys serveri on hidas, joten kannattaa rajoittaa pyyntöjä. Pienensin ffufin thread-määrän tuolla **-t 10** parametrilla joka hidasti ffuf ajon aikaa mutta sen ansiosta serveri ruuhkautunut eikä palauttanut mitään virheitä.  
+Materiaaleissa lukee että kehitys serveri on hidas, joten kannattaa rajoittaa pyyntöjä. Pienensin ffufin thread-määrän tuolla **-t 10** parametrilla joka hidasti ffuf ajon aikaa mutta sen ansiosta serveri ei ruuhkautunut eikä palauttanut mitään virheitä.  
 <img width="1539" height="756" alt="image" src="https://github.com/user-attachments/assets/a5391d13-e9dc-458c-992f-705c2801a3fb" />  
 
 Fuzzaus löysi "admin-console" polun, jolla on "status: 301", mikä tarkoittaa pysyvää uudelleenohjausta. Etusivuilla oleva "admin dashboard" nappi vei **/admin-dashboard/** osoitteeseen, eikä tuohon "admin-console" osoitteeseen.  
@@ -176,7 +182,7 @@ Avasin **hats/views.py** ja rupesin tutkimaan sitä:
 Koodissa on kolme eri luokkaa kirjautumiselle. Ekat kaksi luokkaa on tehty oikein, mutta kolmannesta luokasta löytyy virhe:  
 <img width="897" height="162" alt="image" src="https://github.com/user-attachments/assets/02abf0d0-5384-46e2-9571-a2293a63c62f" />  
 
-Toisin kuin koodin toisessa luokassa, kolmannesta luokasta puuttuu **and self.request.user.is.staff** tarkistus, eli ohjelma ei tarkista sitä, onko käyttäjä admin vai ei.  
+Toisin kuin koodin toisessa luokassa, kolmannesta luokasta puuttuu **and self.request.user.is_staff** tarkistus, eli ohjelma ei tarkista sitä, onko käyttäjä admin vai ei.  
 Lisäsin koodiin puuttuvan tarkistuksen:  
 <img width="1219" height="149" alt="image" src="https://github.com/user-attachments/assets/23384d31-16e7-4bd9-bf25-87ad2589188a" />  
 
@@ -188,5 +194,7 @@ Se oli edelleenkin sama 403 Forbidden. Sitten menin **http://127.0.0.1:8000/admi
 
 Ja nyt sekin on Forbidden! 
 
+
+## Lähteet
 
 
