@@ -191,7 +191,7 @@ http://127.0.0.1:8000/admin-console/
 ````
 <img width="1201" height="523" alt="image" src="https://github.com/user-attachments/assets/99e93df0-4f5b-41f3-89b8-e19c78d2dfcc" />  
 
-Pääsin admin consoleen. Tässä kohtaa voisi päätellä, että ohjelmoinnissa on käynyt virhe. **admin-dashboard**:ille on annettu oikeat oikeudet, kun taas **admin-console**:lle ei ole, minkä takia admin consoleen pääsee käsiksi.  
+Pääsin admin consoleen. Tässä kohtaa voisi päätellä, että ohjelmoinnissa on käynyt virhe. **Admin-dashboard**:ille on annettu oikeat oikeudet, kun taas **admin-console**:lle ei ole, minkä takia admin consoleen pääsee käsiksi.  
 
 # e) Fix the 020-your-eyes-only vulnerability. Demonstrate with a test that your solution works.
 
