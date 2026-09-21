@@ -75,7 +75,7 @@ Yritin sitten samaa uudestaan, mutta ehtona oli **' OR 1=1 LIMIT 2,1--**, joka s
 SUPERADMIN%%rootALL-FLAG{Tero-e45f8764675e4463db969473b6d0fcdd}
 ````
 
-# Fix the 010-staff-only vulnerability from source code. Demonstrate with a test that your solution works.
+# b) Fix the 010-staff-only vulnerability from source code. Demonstrate with a test that your solution works.
 
 
 Seuraavaksi sitten piti etsiä koodista haavoittuvuus ja korjata se. Avasin koodin microlla, **micro staff-only.py** ja lähdin etsimään virhettä. Etsin koodista kohtaa jossa PIN-koodi liitetään SQL-kyselyyn. Tämä löytyi riviltä 22, mistä sitten virhe selvisi:  
@@ -96,7 +96,7 @@ Nyt ei tullut lippua näkyviin! Eli haavoittuvuuden korjaaminen onnistui. Kokeil
 
 "Your password is Somedude" tuli näkyviin, eli ohjelma toimii normaalisti.  
 
-# Solve dirfuzt-1 from the article Karvinen 2023: Find Hidden Web Directories - Fuzz URLs with ffuf.
+# c) Solve dirfuzt-1 from the article Karvinen 2023: Find Hidden Web Directories - Fuzz URLs with ffuf.
 
 
 Aloitin lataamalla ffufin ja ffufia varten tarvittavan sanalistan: 
