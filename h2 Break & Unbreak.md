@@ -1,8 +1,9 @@
 # Ympäristö
 
-
-
-
+Käyttöjärjestelmä: Kali GNU  
+Laitteisto: Thinkpad T14, Oracle VirtualBox Manager  
+Selain: Firefox  
+Verkko: NAT  
 
 # x) Read/watch/listen and summarize. 
 
@@ -162,7 +163,7 @@ Lähdin fuzzaamaan Django-sovellusta **ffuf -w common.txt -u http://127.0.0.1:80
 Materiaaleissa lukee että kehitys serveri on hidas, joten kannattaa rajoittaa pyyntöjä. Pienensin ffufin thread-määrän tuolla **-t 10** parametrilla joka hidasti ffuf ajon aikaa mutta sen ansiosta serveri ei ruuhkautunut eikä palauttanut mitään virheitä.  
 <img width="1539" height="756" alt="image" src="https://github.com/user-attachments/assets/a5391d13-e9dc-458c-992f-705c2801a3fb" />  
 
-Fuzzaus löysi "admin-console" polun, jolla on "status: 301", mikä tarkoittaa pysyvää uudelleenohjausta. Etusivuilla oleva "admin dashboard" nappi vei **/admin-dashboard/** osoitteeseen, eikä tuohon "admin-console" osoitteeseen.  
+Fuzzaus löysi "admin-console" polun, jolla on "status: 301". Googlaamalla selvisi että se tarkoittaa pysyvää uudelleenohjausta. Etusivuilla oleva "admin dashboard" nappi vei **/admin-dashboard/** osoitteeseen, eikä tuohon "admin-console" osoitteeseen.  
 Kokeilin sitten vaihtaa ton linkissä olevan dashboardin consoleksi:  
 ````
 http://127.0.0.1:8000/admin-console/
@@ -197,4 +198,10 @@ Ja nyt sekin on Forbidden!
 
 ## Lähteet
 
-
+OWASP Top 10: A01:2025 Broken Access Control - https://top10.owasp.org/2025/A01_2025-Broken_Access_Control/. Luettu: 20.9.2026.  
+PortSwigger: Access control vulnerabilities and privilege escalation - https://portswigger.net/web-security/access-control. Luettu 20.9.2026.  
+Karvinen: Find Hidden Web Directories - Fuzz URLs with ffuf - https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/. Luettu 20.9.2026.  
+Karvinen: Raportin kirjoittaminen - https://terokarvinen.com/2006/raportin-kirjoittaminen-4/. Luettu 20.9.2026.  
+Karvinen: Hack'n Fix - https://terokarvinen.com/hack-n-fix/#tips. Luettu 20.9.2026.  
+Niinimets: h2 - Break & unbreak - https://rbin.dev/writing/SH24-002. Luettu 20.9.2026.  
+Mdn: 301 Moved Permanently - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/301. Luettu 20.9.2026.  
