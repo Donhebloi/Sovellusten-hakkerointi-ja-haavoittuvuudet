@@ -82,7 +82,7 @@ Seuraavaksi sitten piti etsiä koodista haavoittuvuus ja korjata se. Avasin kood
 
 <img width="1057" height="36" alt="image" src="https://github.com/user-attachments/assets/ae9b99e3-09da-4357-b0f5-4db0214bb559" />  
 
-Tässä siis yhdistyy käyttäjän syöttämä merkkijono osaksi SQL-komentoa. Koodi pitää korjata niin, että käyttäjän data ja SQL-rakenne pysyvät erillään, eikä sotkeennu. Muutin koodia muokkaamalla SQL-komentoriviä ja lisäämällä toisen **pin** muuttujan:  
+Tässä siis yhdistyy käyttäjän syöttämä merkkijono osaksi SQL-komentoa. Koodi pitää korjata niin, että käyttäjän data ja SQL-rakenne pysyvät erillään, eikä sotkeennu. Muutin koodia muokkaamalla SQL-komentoriviä, lisäämällä siihen **:pin** paikkamerkin ja lisäämällä toisen, erillisen **pin** parametrin:  
 
 <img width="895" height="185" alt="image" src="https://github.com/user-attachments/assets/db6fe395-3f16-44f5-a17a-dfc6bc12908b" />  
 
