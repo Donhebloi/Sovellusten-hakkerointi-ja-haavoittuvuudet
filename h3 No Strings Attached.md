@@ -7,7 +7,6 @@ Verkko: NAT
 
   
 # a)
-
 Aloitin unzippaamalla tehtävän **unzip ezbin-challenges.zip**  
 <img width="627" height="300" alt="image" src="https://github.com/user-attachments/assets/2e17b776-1e78-4fbb-ae7c-9edbb38f4072" />  
 
