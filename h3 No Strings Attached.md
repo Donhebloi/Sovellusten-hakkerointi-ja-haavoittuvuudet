@@ -75,7 +75,7 @@ Kokeilin sitten tuota **"-d"** parametria, ajamalla komennon **"upx -d packd"**:
 <img width="1165" height="299" alt="image" src="https://github.com/user-attachments/assets/f7808491-1acc-4cce-bdb1-f9a8b922f404" />  
 
 Oletin, että komento toimii koska "Unpacked 1 file" teksti tuli esille.  
-Tästä lähdin sitten taas kokeilemaan **strings** komentoa:  
+Tästä lähdin sitten varmistamaan toimiiko se, käyttämällä taas **strings** komentoa:  
 <img width="1021" height="581" alt="image" src="https://github.com/user-attachments/assets/5003eaea-bcd9-44ee-a0da-62cdf9bcf291" />  
 
 Nyt sitten UPX:n purkamisen jälkeen, **strings** komennolla tuli salasana ja lippu esiin!  
