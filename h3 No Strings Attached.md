@@ -42,7 +42,7 @@ Alkuperäisessä koodissa salasana näkyy selkeästi luettavana merkkijonona. "P
 Muokattu koodi:  
 <img width="1368" height="701" alt="image" src="https://github.com/user-attachments/assets/063f75b1-1d9f-4e11-b2e0-bfeec449c7ca" />  
 
-Koodin muokkaamisen jälkeen käänsin tiedoston jotta uusi koodi alkaisi toimimaan **gcc -o passtr passtr.c**:  
+Koodin muokkaamisen jälkeen käänsin tiedoston jotta uusi koodi alkaisi toimimaan, eli **gcc -o passtr passtr.c**:  
 <img width="563" height="61" alt="image" src="https://github.com/user-attachments/assets/7dcb28f5-dc5c-4adf-85d3-59a6b81025a2" />  
 
 Nyt **strigns** komennon tuloste näytti erilaiselta:  
@@ -52,9 +52,38 @@ Kokeilin vielä että ohjelma toimii normaalisti:
 <img width="1047" height="132" alt="image" src="https://github.com/user-attachments/assets/f02ed67e-472c-4f2c-8905-3168f88498db" />  
 
 Ja sehän toimi.  
-Tämä oli nyt aika todella heikkoa heikkoa obfuskointia, eikä mitään oikeaa salausta. Koodia olisi varmasti voinut muuttaa paljon tehokkaammaksi niin että salasana on täysin piilossa **strings** komennolta, mutta en halunnut kopioida ja tehdä sellaisia asioita mitä en itse ymmärrä ollenkaan.  
+Tämä oli nyt aika todella heikkoa obfuskointia, eikä mitään oikeaa salausta. Koodia olisi varmasti voinut muuttaa paljon tehokkaammaksi niin että salasana on täysin piilossa **strings** komennolta, mutta en halunnut kopioida ja tehdä sellaisia asioita mitä en itse ymmärrä ollenkaan.  
 
 
 # c
 
+Siirryin **packd** hakemistoon ja kokeilin ajaa ohjelman, eli **./packd**. Ohjelma kysyi salasanaa kuten aikaisemmassa tehtävässä:  
+<img width="574" height="138" alt="image" src="https://github.com/user-attachments/assets/fd340218-e586-4802-bb3f-797efb5a5ab5" />  
 
+Kokeilin sitten samaa taktiikkaa kuten ensimmäisessä tehtävässä, eli **strings** komentoa:  
+<img width="542" height="787" alt="image" src="https://github.com/user-attachments/assets/0092da2c-3d3c-49a0-9612-fbc89956c091" />  
+
+Tällä kertaa ei kuitenkaan paljastunut salasanaa ja lippua **strings** komennon avulla.  
+**Strings** komennolla paljastui kuitenkin että **packd** tiedosto on pakattu "UPX" ohjelmalla:  
+<img width="1243" height="59" alt="image" src="https://github.com/user-attachments/assets/fe9442c0-9d15-480d-a8fb-90602c030210" />  
+
+En ollut ennestään tuttu "UPX" ohjelman kanssa, joten lähdin netistä etsimään tietoa siitä ja miten "UPX" ohjelman voisi purkaa.  
+Löysin netistä ohjeet missä kerrottiin **"-d"** parametrin käytöstä kun haluaa purkaa UPX pakatun ohjelman. Tajusin sitten vielä kurkata UPX:n **help** sivuille, eli **upx --help**, josta paljastui myös tuo **-d** parametri:  
+<img width="1185" height="403" alt="image" src="https://github.com/user-attachments/assets/e97408ab-4834-4507-8cce-d7f644e7cf39" />  
+
+Kokeilin sitten tuota **"-d"** parametria, ajamalla komennon **"upx -d packd"**:  
+<img width="1165" height="299" alt="image" src="https://github.com/user-attachments/assets/f7808491-1acc-4cce-bdb1-f9a8b922f404" />  
+
+Oletin, että komento toimii koska "Unpacked 1 file" teksti tuli esille.  
+Tästä lähdin sitten taas kokeilemaan **strings** komentoa:  
+<img width="1021" height="581" alt="image" src="https://github.com/user-attachments/assets/5003eaea-bcd9-44ee-a0da-62cdf9bcf291" />  
+
+Nyt sitten UPX:n purkamisen jälkeen, **strings** komennolla tuli salasana ja lippu esiin!  
+````
+piilos-AnAnAs
+Yes! That's the password. FLAG{Tero-0e3bed0a89d8851da933c64fefad4ff2}
+````
+Kokeilin vielä että salasana oikeasti toimii, eli ajoin ohjelman **./packd** ja syötin löydetyn salasanan:  
+<img width="1050" height="157" alt="image" src="https://github.com/user-attachments/assets/6ebc2132-5b47-4d37-b946-d0db611088ca" />  
+
+Nyt ohjelma päästi sisälle ja lippu tuli taas esille!  
