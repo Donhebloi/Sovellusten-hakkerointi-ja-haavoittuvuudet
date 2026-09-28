@@ -37,22 +37,22 @@ Lähdin tutkimaan alkuperäistä koodia avaamalla sen micro tekstieditorilla,  *
 <img width="990" height="455" alt="image" src="https://github.com/user-attachments/assets/ff58263a-9e96-4790-b7b6-189283110b54" />  
 
 
-Koodaaminen on itsellä erittäin heikkoa niin käytin tähän apuna tekoälyä (Claude).  
-Alkuperäisessä koodissa salasana näkyy selkeästi luettavana merkkijonona. "Parannetussa" koodissa salasana on käännetty toisinpäin, eli se on edelleenkin helposti löydettävissä ja luettavissa, mutta ehkä ei kuitenkaan enään ihan niin selkeästi esillä kuin aikasemmin.  
+Koodaaminen on itsellä erittäin heikkoa, joten käytin tähän apuna tekoälyä (Claude).  
+Alkuperäisessä koodissa salasana näkyy selkeästi luettavana merkkijonona. "Parannetussa" koodissa salasana on käännetty toisinpäin, eli se on edelleenkin helposti löydettävissä ja luettavissa, mutta ehkä ei kuitenkaan enää ihan niin selkeästi esillä kuin aikasemmin.  
 Muokattu koodi:  
 <img width="1368" height="701" alt="image" src="https://github.com/user-attachments/assets/063f75b1-1d9f-4e11-b2e0-bfeec449c7ca" />  
 
-Koodin muokkaamisen jälkeen käänsin tiedoston jotta uusi koodi alkaisi toimimaan, eli **gcc -o passtr passtr.c**:  
+Koodin muokkaamisen jälkeen käänsin tiedoston, jotta uusi koodi alkaisi toimimaan, eli **gcc -o passtr passtr.c**:  
 <img width="563" height="61" alt="image" src="https://github.com/user-attachments/assets/7dcb28f5-dc5c-4adf-85d3-59a6b81025a2" />  
 
-Nyt **strigns** komennon tuloste näytti erilaiselta:  
+Nyt **strings** komennon tuloste näytti erilaiselta:  
 <img width="1056" height="610" alt="image" src="https://github.com/user-attachments/assets/316fa136-9d3f-457c-b9a0-5e041939ed3d" />  
 
-Kokeilin vielä että ohjelma toimii normaalisti:  
+Kokeilin vielä, että ohjelma toimii normaalisti:  
 <img width="1047" height="132" alt="image" src="https://github.com/user-attachments/assets/f02ed67e-472c-4f2c-8905-3168f88498db" />  
 
 Ja sehän toimi.  
-Tämä oli nyt aika todella heikkoa obfuskointia, eikä mitään oikeaa salausta. Koodia olisi varmasti voinut muuttaa paljon tehokkaammaksi niin että salasana on täysin piilossa **strings** komennolta, mutta en halunnut kopioida ja tehdä sellaisia asioita mitä en itse ymmärrä ollenkaan.  
+Tämä oli nyt aika todella heikkoa obfuskointia, eikä mitään oikeaa salausta. Koodia olisi varmasti voinut muuttaa paljon tehokkaammaksi niin, että salasana on täysin piilossa **strings** komennolta, mutta en halunnut kopioida ja tehdä sellaisia asioita, mitä en itse ymmärrä ollenkaan.  
 
 
 # c
@@ -64,11 +64,11 @@ Ohjelma ei päästänyt sisälle, joten kokeilin sitten samaa taktiikkaa kuten e
 <img width="542" height="787" alt="image" src="https://github.com/user-attachments/assets/0092da2c-3d3c-49a0-9612-fbc89956c091" />  
 
 Tällä kertaa ei kuitenkaan paljastunut salasanaa ja lippua **strings** komennon avulla.  
-**Strings** komennolla paljastui kuitenkin että **packd** tiedosto on pakattu "UPX" ohjelmalla:  
+**Strings** komennolla paljastui kuitenkin, että **packd** tiedosto on pakattu "UPX" ohjelmalla:  
 <img width="1243" height="59" alt="image" src="https://github.com/user-attachments/assets/fe9442c0-9d15-480d-a8fb-90602c030210" />  
 
-En ollut ennestään tuttu "UPX" ohjelman kanssa, joten lähdin netistä etsimään lisää tietoa siitä sekä miten "UPX" ohjelman voisi purkaa.  
-Löysin netistä ohjeet missä kerrottiin **"-d"** parametrin käytöstä kun haluaa purkaa UPX pakatun ohjelman. Tajusin sitten vielä kurkata UPX:n **help** sivuille, eli **upx --help**, josta paljastui myös tuo **-d** parametri, eli **decompress**:  
+En ollut ennestään tuttu "UPX" ohjelman kanssa, joten lähdin netistä etsimään lisää tietoa siitä sekä siitä, miten "UPX" ohjelman voisi purkaa.  
+Löysin netistä ohjeet, joissa kerrottiin **"-d"** parametrin käytöstä, kun haluaa purkaa UPX pakatun ohjelman. Tajusin sitten vielä kurkata UPX:n **help** sivuille, eli **upx --help**, josta paljastui myös tuo **-d** parametri, eli **decompress**:  
 <img width="1185" height="403" alt="image" src="https://github.com/user-attachments/assets/e97408ab-4834-4507-8cce-d7f644e7cf39" />  
 
 Kokeilin sitten tuota **"-d"** parametria, ajamalla komennon **"upx -d packd"**:  
@@ -83,7 +83,7 @@ Nyt sitten UPX:n purkamisen jälkeen, **strings** komennolla tuli salasana ja li
 piilos-AnAnAs
 Yes! That's the password. FLAG{Tero-0e3bed0a89d8851da933c64fefad4ff2}
 ````
-Kokeilin vielä että salasana oikeasti toimii, eli ajoin ohjelman **./packd** ja syötin löydetyn salasanan:  
+Kokeilin vielä, että salasana oikeasti toimii, eli ajoin ohjelman **./packd** ja syötin löydetyn salasanan:  
 <img width="1050" height="157" alt="image" src="https://github.com/user-attachments/assets/6ebc2132-5b47-4d37-b946-d0db611088ca" />  
 
 Nyt ohjelma päästi sisälle ja lippu tuli taas esille!  
