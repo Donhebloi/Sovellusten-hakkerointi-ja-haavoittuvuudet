@@ -31,7 +31,7 @@ Nyt ohjelma päästi sisään ja näytti jo aikaisemmin löydetyn lipun.
 
 # b
 
-Lähdin tutkimaan alkuperäistä koodia avaamalla sen **micro passtr.c**:  
+Lähdin tutkimaan alkuperäistä koodia avaamalla sen micro tekstieditorilla,  **micro passtr.c**:  
 <img width="567" height="57" alt="image" src="https://github.com/user-attachments/assets/8efe7ed0-9c68-44af-871f-98dd9f1dffb7" />  
 
 <img width="990" height="455" alt="image" src="https://github.com/user-attachments/assets/ff58263a-9e96-4790-b7b6-189283110b54" />  
@@ -60,15 +60,15 @@ Tämä oli nyt aika todella heikkoa obfuskointia, eikä mitään oikeaa salausta
 Siirryin **packd** hakemistoon ja kokeilin ajaa ohjelman, eli **./packd**. Ohjelma kysyi salasanaa kuten aikaisemmassa tehtävässä:  
 <img width="574" height="138" alt="image" src="https://github.com/user-attachments/assets/fd340218-e586-4802-bb3f-797efb5a5ab5" />  
 
-Kokeilin sitten samaa taktiikkaa kuten ensimmäisessä tehtävässä, eli **strings** komentoa:  
+Ohjelma ei päästänyt sisälle, joten kokeilin sitten samaa taktiikkaa kuten ensimmäisessä tehtävässä, eli **strings** komentoa:  
 <img width="542" height="787" alt="image" src="https://github.com/user-attachments/assets/0092da2c-3d3c-49a0-9612-fbc89956c091" />  
 
 Tällä kertaa ei kuitenkaan paljastunut salasanaa ja lippua **strings** komennon avulla.  
 **Strings** komennolla paljastui kuitenkin että **packd** tiedosto on pakattu "UPX" ohjelmalla:  
 <img width="1243" height="59" alt="image" src="https://github.com/user-attachments/assets/fe9442c0-9d15-480d-a8fb-90602c030210" />  
 
-En ollut ennestään tuttu "UPX" ohjelman kanssa, joten lähdin netistä etsimään tietoa siitä ja miten "UPX" ohjelman voisi purkaa.  
-Löysin netistä ohjeet missä kerrottiin **"-d"** parametrin käytöstä kun haluaa purkaa UPX pakatun ohjelman. Tajusin sitten vielä kurkata UPX:n **help** sivuille, eli **upx --help**, josta paljastui myös tuo **-d** parametri:  
+En ollut ennestään tuttu "UPX" ohjelman kanssa, joten lähdin netistä etsimään lisää tietoa siitä sekä miten "UPX" ohjelman voisi purkaa.  
+Löysin netistä ohjeet missä kerrottiin **"-d"** parametrin käytöstä kun haluaa purkaa UPX pakatun ohjelman. Tajusin sitten vielä kurkata UPX:n **help** sivuille, eli **upx --help**, josta paljastui myös tuo **-d** parametri, eli **decompress**:  
 <img width="1185" height="403" alt="image" src="https://github.com/user-attachments/assets/e97408ab-4834-4507-8cce-d7f644e7cf39" />  
 
 Kokeilin sitten tuota **"-d"** parametria, ajamalla komennon **"upx -d packd"**:  
