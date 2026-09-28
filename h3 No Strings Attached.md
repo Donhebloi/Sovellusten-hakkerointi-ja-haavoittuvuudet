@@ -14,7 +14,7 @@ Aloitin unzippaamalla tehtävän **unzip ezbin-challenges.zip**
 Purkamisen jälkeen yritin ajaa ohjelman **./passtr**, mutta ongelmana oli se että en tiennyt oikeaa salasanaa:  
 <img width="570" height="147" alt="image" src="https://github.com/user-attachments/assets/23f33a88-6b6e-44a5-a28b-dbfa42421e61" />  
 
-Lähdin tästä sitten etsimään salasanaa **strings** komennolla. Eli **strings passtr**:  
+Lähdin tästä sitten etsimään salasanaa **strings** komennolla. **Strings** etsii siis binääristä tperäkkäisiä tulostettavia merkkejä. Eli **strings passtr**:  
 <img width="1045" height="621" alt="image" src="https://github.com/user-attachments/assets/96632368-5962-482d-a0ec-efb3fad69c69" />
 
 Sieltähän löytyi salasana ja lippu: 
