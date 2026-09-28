@@ -3,7 +3,8 @@
 Käyttöjärjestelmä: Kali GNU  
 Laitteisto: Thinkpad T14, Oracle VirtualBox Manager  
 Selain: Firefox  
-Verkko: NAT<br/>  
+Verkko: NAT  
+
   
 
 # a
