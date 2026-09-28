@@ -34,6 +34,9 @@ Nyt ohjelma päästi sisään ja näytti jo aikaisemmin löydetyn lipun.
 Lähdin tutkimaan alkuperäistä koodia avaamalla sen **micro passtr.c**:  
 <img width="567" height="57" alt="image" src="https://github.com/user-attachments/assets/8efe7ed0-9c68-44af-871f-98dd9f1dffb7" />  
 
+<img width="990" height="455" alt="image" src="https://github.com/user-attachments/assets/ff58263a-9e96-4790-b7b6-189283110b54" />  
+
+
 Koodaaminen on itsellä erittäin heikkoa niin käytin tähän apuna tekoälyä (Claude).  
 Alkuperäisessä koodissa salasana näkyy selkeästi luettavana merkkijonona. "Parannetussa" koodissa salasana on käännetty toisinpäin, eli se on edelleenkin helposti löydettävissä ja luettavissa, mutta ehkä ei kuitenkaan enään ihan niin selkeästi esillä kuin aikasemmin.  
 Muokattu koodi:  
