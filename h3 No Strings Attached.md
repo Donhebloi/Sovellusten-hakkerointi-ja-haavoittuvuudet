@@ -1,10 +1,10 @@
 # Ympäristö
 
-Käyttöjärjestelmä: Kali GNU
-Laitteisto: Thinkpad T14, Oracle VirtualBox Manager
-Selain: Firefox
-Verkko: NAT
-
+Käyttöjärjestelmä: Kali GNU  
+Laitteisto: Thinkpad T14, Oracle VirtualBox Manager  
+Selain: Firefox  
+Verkko: NAT  
+  
 
 # a
 
