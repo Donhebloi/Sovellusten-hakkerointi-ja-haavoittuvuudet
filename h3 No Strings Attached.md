@@ -87,3 +87,9 @@ Kokeilin vielä että salasana oikeasti toimii, eli ajoin ohjelman **./packd** j
 <img width="1050" height="157" alt="image" src="https://github.com/user-attachments/assets/6ebc2132-5b47-4d37-b946-d0db611088ca" />  
 
 Nyt ohjelma päästi sisälle ja lippu tuli taas esille!  
+
+## Lähteet
+
+UPX help sivu Linuxissa  
+UPX Packing - https://www.reverseengineering.app/en/techniques/upx-packing  
+Claude AI käytettu apuna koodien kanssa  
