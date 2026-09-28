@@ -90,6 +90,7 @@ Nyt ohjelma päästi sisälle ja lippu tuli taas esille!
 
 ## Lähteet
 
-UPX help sivu Linuxissa - **upx --help**. Luettu 28.9.2026  
+UPX help sivu Linuxissa - **upx --help**. Luettu 28.9.2026.  
 UPX Packing - https://www.reverseengineering.app/en/techniques/upx-packing. Luettu 28.9.2026.  
+UPX the Ultimate Packer for eXecutables - https://upx.github.io/. Luettu 28.9.2026.  
 Claude AI käytettu apuna koodien kanssa  
