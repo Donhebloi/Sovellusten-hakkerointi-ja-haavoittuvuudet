@@ -55,5 +55,6 @@ Ja sehän toimi.
 Tämä oli nyt aika todella heikkoa heikkoa obfuskointia, eikä mitään oikeaa salausta. Koodia olisi varmasti voinut muuttaa paljon tehokkaammaksi niin että salasana on täysin piilossa **strings** komennolta, mutta en halunnut kopioida ja tehdä sellaisia asioita mitä en itse ymmärrä ollenkaan.  
 
 
+# c
 
 
