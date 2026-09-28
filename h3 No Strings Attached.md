@@ -80,7 +80,7 @@ Tästä lähdin sitten varmistamaan toimiiko se, käyttämällä taas **strings*
 Nyt sitten UPX:n purkamisen jälkeen, **strings** komennolla tuli salasana ja lippu esiin!  
 ````
 piilos-AnAnAs
-Yes! That's the password. FLAG{Tero-0e3bed0a89d8851da933c64fefad4ff2}
+FLAG{Tero-0e3bed0a89d8851da933c64fefad4ff2}
 ````
 Kokeilin vielä, että salasana oikeasti toimii, eli ajoin ohjelman **./packd** ja syötin löydetyn salasanan:  
 <img width="1050" height="157" alt="image" src="https://github.com/user-attachments/assets/6ebc2132-5b47-4d37-b946-d0db611088ca" />  
