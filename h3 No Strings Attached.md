@@ -6,7 +6,6 @@ Selain: Firefox
 Verkko: NAT  
 
   
-
 # a
 
 Aloitin unzippaamalla tehtävän **unzip ezbin-challenges.zip**  
