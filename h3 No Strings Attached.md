@@ -6,7 +6,7 @@ Selain: Firefox
 Verkko: NAT  
 
   
-# a
+# a)
 
 Aloitin unzippaamalla tehtävän **unzip ezbin-challenges.zip**  
 <img width="627" height="300" alt="image" src="https://github.com/user-attachments/assets/2e17b776-1e78-4fbb-ae7c-9edbb38f4072" />  
@@ -29,7 +29,7 @@ Kokeilin vielä uudestaan ajaa **passtr** ohjelman ja syöttää siihen löydety
 Nyt ohjelma päästi sisään ja näytti jo aikaisemmin löydetyn lipun.  
 
 
-# b
+# b)
 
 Lähdin tutkimaan alkuperäistä koodia avaamalla sen micro tekstieditorilla,  **micro passtr.c**:  
 <img width="567" height="57" alt="image" src="https://github.com/user-attachments/assets/8efe7ed0-9c68-44af-871f-98dd9f1dffb7" />  
@@ -55,7 +55,7 @@ Ja sehän toimi.
 Tämä oli nyt aika todella heikkoa obfuskointia, eikä mitään oikeaa salausta. Koodia olisi varmasti voinut muuttaa paljon tehokkaammaksi niin, että salasana on täysin piilossa **strings** komennolta, mutta en halunnut kopioida ja tehdä sellaisia asioita, mitä en itse ymmärrä ollenkaan.  
 
 
-# c
+# c)
 
 Siirryin **packd** hakemistoon ja kokeilin ajaa ohjelman, eli **./packd**. Ohjelma kysyi salasanaa kuten aikaisemmassa tehtävässä:  
 <img width="574" height="138" alt="image" src="https://github.com/user-attachments/assets/fd340218-e586-4802-bb3f-797efb5a5ab5" />  
