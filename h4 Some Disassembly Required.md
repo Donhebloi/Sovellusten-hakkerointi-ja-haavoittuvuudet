@@ -5,7 +5,8 @@ Aloitin päivittämällä järjestelmän **sudo apt-get update** ja sen jälkeen
 
 # b) rever-C
 
-Aloitin purkamalla tehtävätiedoston, **unzip ezbin-challenges.zip**
+Aloitin purkamalla tehtävätiedoston, **unzip ezbin-challenges.zip**  
+
 <img width="552" height="304" alt="image" src="https://github.com/user-attachments/assets/aa3eb19f-5144-41fc-8f31-7875c7b3bdfa" />  
 
 Tästä siirryin sitten Ghidran puolelle. Aloitin luomalla uuden projektin, eli File -> New project, valitsin projektin hakemistoksi oman "challenges" hakemiston ja annoin projektille nimeksi "läksyt".  
@@ -59,6 +60,57 @@ Muokattuna:
 
 Decompile kohdasta näkee nyt, että koodissa ehto on vaihtanut paikkaa.  
 
+Nyt sitten piti exporttaa muokattu tiedosto. Eli File -> Export program, valitsin formaatiksi "Original File" ja muutin tiedoston nimeksi "passtr_fixed"  
+<img width="335" height="195" alt="image" src="https://github.com/user-attachments/assets/350f1efd-bc2f-4f82-a599-893114ccfc7c" />
+
+Sitten annoin ohjelmalle ajo-oikeudet, **chmod u+x passtr_fixed**:  
+<img width="378" height="66" alt="image" src="https://github.com/user-attachments/assets/fb5fbb1a-528a-452f-8521-7b9508cbc75a" />  
+<img width="816" height="22" alt="image" src="https://github.com/user-attachments/assets/96e6f20c-072d-43e4-8e0f-613858421c4a" />  
+
+
+Kokeilin sitten toimiiko ohjelma niin kuin pitää. Syötin eka koodista löytyvän oikean salasanan, eli "sala-hakkeri-321" ja sehän ei toiminut:  
+<img width="308" height="140" alt="image" src="https://github.com/user-attachments/assets/e06e5ed5-8c8c-4ec9-8398-61b290299a32" />  
+
+Syötin sitten jonkun random salasanan:  
+<img width="976" height="145" alt="image" src="https://github.com/user-attachments/assets/750dbc0f-1c61-4c0f-9aeb-24d2ffe27a96" />  
+
+Ja se toimi. Eli ohjelma toimii nyt onnistuneesti väärinpäin.  
+
+# d) Nora CrackMe
+
+Aloitin hakemalla Nora CrackMe tehtävien linkin GitHubista ja kloonasin tiedostot itselleni, **git clone https://github.com/NoraCodes/crackmes.git**:  
+<img width="1003" height="238" alt="image" src="https://github.com/user-attachments/assets/afb82e04-be08-4e64-acea-01f35c21a39c" />  
+
+Tästä siirryin sitten omaan **crackmes** hakemistoon ja avasin siellä olevan README tiedoston, josta löytyi ohjeet miten tehtävät saa toimimaan.  
+<img width="1915" height="56" alt="image" src="https://github.com/user-attachments/assets/92fe1f32-cbe4-4752-906c-b1ab7b8dfccf" />  
+
+Lähdin sitten kääntämään tiedostot binääriksi **make** komennolla:  
+<img width="1002" height="581" alt="image" src="https://github.com/user-attachments/assets/4fee048c-003b-4ac3-8717-3de54fb516a6" />  
+
+# e) Nora crackme01. Solve the binary.
+
+Importtasin käännetyn **crackme01** tiedoston omaan Ghidra projektiin ja lähdin tutkimaan sitä. Lähdin katsomaan main funktiota, josta paljastui heti salasana "password1":  
+<img width="359" height="365" alt="image" src="https://github.com/user-attachments/assets/9c3c2459-bf1f-48f8-826b-103fce06d48e" />  
+
+Kokeilin sitten toimiiko salasana kun ohjelman ajaa:  
+<img width="397" height="79" alt="image" src="https://github.com/user-attachments/assets/b4615464-d007-4906-8c1c-aec665b4858b" />  
+
+Ja se toimi sillä.  
+
+# e) Nora crackme01e. Solve the binary.
+
+Lähdin tekemään tehtävää samalla tavalla kuin aikasempaakin, eli importtasin tehtävän Ghidra projektiini ja rupesin analysoimaan main funktiota:  
+<img width="356" height="369" alt="image" src="https://github.com/user-attachments/assets/c30487a6-60f4-4c9d-b4e7-74d2df8c5cf0" />  
+
+Koodista löytyi salasana "slm!paas.k", jota lähin kokeilemaan:  
+<img width="438" height="82" alt="image" src="https://github.com/user-attachments/assets/810694aa-4175-4ee6-828b-18e7bd64d9e4" />  
+
+Mutta se ei toiminutkaan. Lähdin tästä googlailemaan tuota "event not found" tulostetta ja löysin ohjeet, jossa kerrottiin, että "!" käytetään komentohistorian laajennukseen, ja ohjeistettiin käyttämään yksittäis hipsukoita tämän estämiseen, joten lähdin kokeilemaan niitä:  
+<img width="462" height="82" alt="image" src="https://github.com/user-attachments/assets/ad1961c1-dd32-43f9-b112-1066ca9e2475" />  
+
+Ja nyt ohjelma toimi, kun lisäsi hipsukat salasanan ympärille!
+
+# f) Nora crackme02.
 
 
 
