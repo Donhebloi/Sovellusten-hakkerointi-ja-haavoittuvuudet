@@ -27,8 +27,8 @@ Projektin luomisen jälkeen, importtasin siihen "packd" tiedoston, File -> Impor
 <img width="266" height="171" alt="image" src="https://github.com/user-attachments/assets/0295435d-ee76-4f1d-bdf7-afd41014a77a" />  
 
 Yritin alkaa analysoida tiedostoa, mutta en löytänyt "main" funktiota mistään. Tajusin sitten että **packd** tiedosto pitäisi varmaan purkaa eka, ennenkuin yrittää analysoida sitä. Tarkistin ekana että voisiko **packd** tiedosto olla UPX pakattu, **strings** ja **grep** komennoilla:  
-**strings packd | grep -1 upx**:  
-<img width="1093" height="134" alt="image" src="https://github.com/user-attachments/assets/60a4f0f2-8668-402f-a7d7-a74bffb1f1cc" />
+**strings packd | grep -i upx**:  
+<img width="1075" height="180" alt="image" src="https://github.com/user-attachments/assets/daf02b06-3ac6-4964-bcec-834f1c956c6b" />  
 
 Sehän oli pakattu. Sitten purin ja nimesin tiedoston uudelleen:  
 **upx -d packd -o packd_unpacked**  
