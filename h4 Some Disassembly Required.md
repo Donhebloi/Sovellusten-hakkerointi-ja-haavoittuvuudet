@@ -62,7 +62,7 @@ Aloitin tehtävän samalla tavalla kuin edellisenkin, eli importtasin "passtr" t
 Siirryin tiedoston main funktioon, **if** muuttujan riville. Tästä "listing" näkymään tuli **JNZ** rivi esiin, mitä piti muokata. Muistin tunnilla käydyn esimerkin avulla, että **JNZ** pitää muuttaa **JZ**:ksi mutta en tarkalleen muistanut miksi ja mitä tuo **JNZ** meinaa, joten hain netistä lisää tietoa siitä.  
 ````
 JNZ = Jump if Not Zero - Jos salasana on väärin, hyppää pois onnistumis-haarasta
-JZ = Jump if Zero - Jos salasana on oikein, hyppää onnistumis-haaraan.
+JZ = Jump if Zero - Jos salasana on oikein, hyppää pois onnistumis-haarasta.
 ````
 Eli tästä sitten muutin **JNZ**:n, **JZ**:ksi, jotta ohjelma alkaisi toimia väärinpäin.  
 Alunperin:  
