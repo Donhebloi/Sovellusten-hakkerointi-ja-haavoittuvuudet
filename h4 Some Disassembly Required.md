@@ -112,6 +112,31 @@ Ja nyt ohjelma toimi, kun lisäsi hipsukat salasanan ympärille!
 
 # f) Nora crackme02.
 
+Aloitin tehtävän taas importtaamalla sen omaan Ghidra projektiini, avaamalla mainin decompileriin ja tuijottamalla koodia. Kuvan koodissa olen jo muokannut muuttujien nimiä.  
+<img width="386" height="484" alt="image" src="https://github.com/user-attachments/assets/01e8bf6d-1535-4018-ba71-957a58e513dc" />  
+
+Koodista löytyi salasana "password1", mitä lähdin kokeilemaan, mutta se ei toiminut.  
+<img width="407" height="79" alt="image" src="https://github.com/user-attachments/assets/881de0bb-fff1-49d2-b729-198b8817e0ac" />  
+
+Olin aika hukassa tässä kohtaa, eikä koodin tuijottaminen edistänyt yhtään mitään, joten kysäsin tekoälyltä (Claude Sonnet 5) apua koodin ymmärtämisessä ja vinkkejä. Sain ehdotukseksi laskea Pythonilla, mitä jokainen merkki salasanasta "passsword1" tarkoittaa ASCII-taulukossa, joten lähdin työstämään sitä.  
+Koska koodissa ei varrata käyttäjän antamaa merkkiä suoraan "password1":n, vaan (expected_char - 1):een, niin pitää ottaa tuo -1 python laskuun mukaan. 
+Avasin **python3** komentotulkissa ja rupesin laskemaan jokaista merkkiä yksitellen, funktiolla **chr(ord('')-1)**  
+<img width="615" height="602" alt="image" src="https://github.com/user-attachments/assets/6af2f684-0952-4f12-aadd-8ce689f0e339" />  
+
+Tulokseksi sain "o`rrvnqc0". Kokeilin sitten että toimiiko tämä, vai ei:  
+<img width="420" height="87" alt="image" src="https://github.com/user-attachments/assets/ae0857c6-19c3-407b-bfa5-ba9a4ae25960" />  
+
+No tulokseksi tuli "bquote". Lähdin sitten hakemaan tietoa että mitäs tämä meinaa ja selvisi että komentorivi tulkitsee tämän keskeneräisenä komentona.  
+Yritin sitten samaa merkkiriviä, mutta nyt lisäsin siihen yksittäis hipsukat mukaan:  
+<img width="436" height="110" alt="image" src="https://github.com/user-attachments/assets/8266a811-0ee9-4cdc-8ba2-4c09f0ac2b7e" />  
+
+Ja nyt se sitten toimi! 
+
+## Lähteet
+
+echo "#!" fails -- "event not found" - https://stackoverflow.com/questions/11816122/echo-fails-event-not-found.  
+Understanding Branch Control Instructions in 8086: JMP, JNZ, and LOOP Explained - https://magica.com/youtube-summarizer/understanding-branch-control-instructions-in-8086-jmp-jnz-and-loop-explained-_IW0stOy1Cs.  
+Karvinen, T. Sovellusten hakkerointi - https://terokarvinen.com/application-hacking/.  
 
 
 
