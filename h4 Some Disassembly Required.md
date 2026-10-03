@@ -26,7 +26,7 @@ Tästä siirryin sitten Ghidran puolelle. Aloitin luomalla uuden projektin, eli 
 Projektin luomisen jälkeen, importtasin siihen "packd" tiedoston, File -> Import File ja valitsemalla "packd" tiedoston.  
 <img width="266" height="171" alt="image" src="https://github.com/user-attachments/assets/0295435d-ee76-4f1d-bdf7-afd41014a77a" />  
 
-Yritin alkaa analysoimaan tiedostoa, mutta en löytänyt "main" funktiota mistään. Tajusin sitten että **packd** tiedosto pitäisi varmaan purkaa eka, ennenkuin yrittää analysoida sitä. Tarkistin ekana että voisiko **packd** tiedosto olla UPX pakattu, **strings** ja **grep** komennoilla:  
+Yritin alkaa analysoida tiedostoa, mutta en löytänyt "main" funktiota mistään. Tajusin sitten että **packd** tiedosto pitäisi varmaan purkaa eka, ennenkuin yrittää analysoida sitä. Tarkistin ekana että voisiko **packd** tiedosto olla UPX pakattu, **strings** ja **grep** komennoilla:  
 **strings packd | grep -1 upx**:  
 <img width="1093" height="134" alt="image" src="https://github.com/user-attachments/assets/60a4f0f2-8668-402f-a7d7-a74bffb1f1cc" />
 
@@ -51,6 +51,10 @@ char local_28 -> char password_input - Tätä syötettä verrataan oikeaan salas
 <img width="515" height="272" alt="image" src="https://github.com/user-attachments/assets/b9d0bd84-3848-45de-a4e7-f0cb90757835" />  
 
 Ohjelma toimii siis niin, että se lukee käyttäjän syötteen ja vertaa sitä ohjelman salasanaan. Jos käyttäjän syöte on oikein, saadaan flägi esille, jos ei ole oikein, niin tulostuu "Sorry, no bonus" teksti.
+````
+FLAG{Tero-0e3bed0a89d8851da933c64fefad4ff2}
+Salasana piilos-AnAnAs
+````
 
 # C) If backwards
 
@@ -60,7 +64,7 @@ Siirryin tiedoston main funktioon, **if** muuttujan riville. Tästä "listing" n
 JNZ = Jump if Not Zero - Jos salasana on väärin, hyppää pois onnistumis-haarasta
 JZ = Jump if Zero - Jos salasana on oikein, hyppää onnistumis-haaraan.
 ````
-Eli tästä sitten muutin **JNZ**:n, **JZ**:ksi, jotta ohjelma alkaisi toimimaan väärinpäin.  
+Eli tästä sitten muutin **JNZ**:n, **JZ**:ksi, jotta ohjelma alkaisi toimia väärinpäin.  
 Alunperin:  
 <img width="513" height="277" alt="image" src="https://github.com/user-attachments/assets/ad90c96d-6e7d-4360-b0ba-6a8ec5b0ce57" />  
 
@@ -131,8 +135,8 @@ Aloitin tehtävän taas importtaamalla sen omaan Ghidra projektiini, avaamalla m
 Koodista löytyi salasana "password1", mitä lähdin kokeilemaan, mutta se ei toiminut.  
 <img width="407" height="79" alt="image" src="https://github.com/user-attachments/assets/881de0bb-fff1-49d2-b729-198b8817e0ac" />  
 
-Olin aika hukassa tässä kohtaa, eikä koodin tuijottaminen edistänyt yhtään mitään, joten kysäsin tekoälyltä (Claude Sonnet 5) apua koodin ymmärtämisessä ja vinkkejä. Sain ehdotukseksi laskea Pythonilla, mitä jokainen merkki salasanasta "passsword1" tarkoittaa ASCII-taulukossa, joten lähdin työstämään sitä.  
-Koska koodissa ei varrata käyttäjän antamaa merkkiä suoraan "password1":n, vaan (expected_char - 1):een, niin pitää ottaa tuo -1 python laskuun mukaan. 
+Olin aika hukassa tässä kohtaa, eikä koodin tuijottaminen edistänyt yhtään mitään, joten kysäsin tekoälyltä (Claude Sonnet 5) apua koodin ymmärtämisessä ja vinkkejä. Sain ehdotukseksi laskea Pythonilla, mitä jokainen merkki salasanasta "password1" tarkoittaa ASCII-taulukossa, joten lähdin työstämään sitä.  
+Koska koodissa ei verrata käyttäjän antamaa merkkiä suoraan "password1":n, vaan (expected_char - 1):een, niin pitää ottaa tuo -1 python laskuun mukaan. 
 Avasin **python3** komentotulkissa ja rupesin laskemaan jokaista merkkiä yksitellen, funktiolla **chr(ord('')-1)**  
 <img width="615" height="602" alt="image" src="https://github.com/user-attachments/assets/6af2f684-0952-4f12-aadd-8ce689f0e339" />  
 
