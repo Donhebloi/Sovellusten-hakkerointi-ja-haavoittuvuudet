@@ -5,6 +5,12 @@ Laitteisto: Thinkpad T14, Oracle VirtualBox Manager
 Selain: Google  
 Verkko: NAT  
 
+# x) Read/watch/listen and summarize. Hammond 2022.
+
+- Ghidra on avoimen lähdekoodin, käänteismallintamiseen käytettävä työkalu  
+- Videolla käsitellään miten Ghidra ladataan ja Ghidran käyttöä  
+- Videolla näytetään miten picoCTF haaste ratkaistaan  
+
 # a) Install Ghidra
 
 Aloitin päivittämällä järjestelmän **sudo apt-get update** ja sen jälkeen latasin Ghidran **sudo apt-get install ghidra**:  
@@ -141,10 +147,12 @@ Ja nyt se sitten toimi!
 
 ## Lähteet
 
-echo "#!" fails -- "event not found" - https://stackoverflow.com/questions/11816122/echo-fails-event-not-found.  
-Understanding Branch Control Instructions in 8086: JMP, JNZ, and LOOP Explained - https://magica.com/youtube-summarizer/understanding-branch-control-instructions-in-8086-jmp-jnz-and-loop-explained-_IW0stOy1Cs.  
-What causes bquote prompt? - https://labex.io/questions/what-causes-bquote-prompt-504238.  
-Karvinen, T. Sovellusten hakkerointi - https://terokarvinen.com/application-hacking/.  
-
+Hammond, GHIDRA for Reverse Engineering - https://www.youtube.com/watch?v=oTD_ki86c9I. Katsottu 3.10.2026. 
+echo "#!" fails -- "event not found" - https://stackoverflow.com/questions/11816122/echo-fails-event-not-found. Luettu 2.10.2026.  
+Understanding Branch Control Instructions in 8086: JMP, JNZ, and LOOP Explained - https://magica.com/youtube-summarizer/understanding-branch-control-instructions-in-8086-jmp-jnz-and-loop-explained-_IW0stOy1Cs. Luettu 2.10.2026   
+What causes bquote prompt? - https://labex.io/questions/what-causes-bquote-prompt-504238. Luettu 2.10.2026.    
+Karvinen, T. Sovellusten hakkerointi - https://terokarvinen.com/application-hacking/. Luettu 2.10.2026.    
+Python ord() and chr(): Convert Characters and ASCII - https://www.digitalocean.com/community/tutorials/python-ord-chr. Luettu 2.10.2026.    
+Claude AI hyödynnetty koodien ymmärtämisessä ja vinkkien antamisessa. 
 
 
