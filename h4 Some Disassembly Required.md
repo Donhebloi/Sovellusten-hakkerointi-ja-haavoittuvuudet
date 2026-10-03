@@ -41,7 +41,7 @@ Ohjelma toimii siis niin, että se lukee käyttäjän syötteen ja vertaa sitä 
 
 # C) If backwards
 
-Aloitin tehtävän samalla tavalla kuin edellisenkin, eli importtasin "passtr" tiedoston omaan "läksyt" projektiin ja avasin sen analysointi työkalulla.  
+Aloitin tehtävän samalla tavalla kuin edellisenkin, eli importtasin "passtr" tiedoston omaan "läksyt" projektiin ja avasin sen Ghidralla.  
 Siirryin tiedoston main funktioon, **if** muuttujan riville. Tästä "listing" näkymään tuli **JNZ** rivi esiin, mitä piti muokata. Muistin tunnilla käydyn esimerkin avulla, että **JNZ** pitää muuttaa **JZ**:ksi mutta en tarkalleen muistanut miksi ja mitä tuo **JNZ** meinaa, joten hain netistä lisää tietoa siitä.  
 ````
 JNZ = Jump if Not Zero - Jos salasana on väärin, hyppää pois onnistumis-haarasta
