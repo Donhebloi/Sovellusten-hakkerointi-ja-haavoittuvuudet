@@ -136,6 +136,7 @@ Ja nyt se sitten toimi!
 
 echo "#!" fails -- "event not found" - https://stackoverflow.com/questions/11816122/echo-fails-event-not-found.  
 Understanding Branch Control Instructions in 8086: JMP, JNZ, and LOOP Explained - https://magica.com/youtube-summarizer/understanding-branch-control-instructions-in-8086-jmp-jnz-and-loop-explained-_IW0stOy1Cs.  
+What causes bquote prompt? - https://labex.io/questions/what-causes-bquote-prompt-504238.  
 Karvinen, T. Sovellusten hakkerointi - https://terokarvinen.com/application-hacking/.  
 
 
