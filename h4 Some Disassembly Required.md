@@ -1,9 +1,9 @@
 # Ympäristö
 
-Käyttöjärjestelmä: Kali GNU
-Laitteisto: Thinkpad T14, Oracle VirtualBox Manager
-Selain: Google
-Verkko: NAT
+Käyttöjärjestelmä: Kali GNU  
+Laitteisto: Thinkpad T14, Oracle VirtualBox Manager  
+Selain: Google  
+Verkko: NAT  
 
 # a) Install Ghidra
 
