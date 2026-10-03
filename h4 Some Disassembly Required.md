@@ -1,3 +1,10 @@
+# Ympäristö
+
+Käyttöjärjestelmä: Kali GNU
+Laitteisto: Thinkpad T14, Oracle VirtualBox Manager
+Selain: Google
+Verkko: NAT
+
 # a) Install Ghidra
 
 Aloitin päivittämällä järjestelmän **sudo apt-get update** ja sen jälkeen latasin Ghidran **sudo apt-get install ghidra**:  
