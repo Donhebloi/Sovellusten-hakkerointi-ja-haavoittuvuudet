@@ -147,12 +147,12 @@ Ja nyt se sitten toimi!
 
 ## Lähteet
 
-Hammond, GHIDRA for Reverse Engineering - https://www.youtube.com/watch?v=oTD_ki86c9I. Katsottu 3.10.2026. 
-echo "#!" fails -- "event not found" - https://stackoverflow.com/questions/11816122/echo-fails-event-not-found. Luettu 2.10.2026.  
-Understanding Branch Control Instructions in 8086: JMP, JNZ, and LOOP Explained - https://magica.com/youtube-summarizer/understanding-branch-control-instructions-in-8086-jmp-jnz-and-loop-explained-_IW0stOy1Cs. Luettu 2.10.2026   
-What causes bquote prompt? - https://labex.io/questions/what-causes-bquote-prompt-504238. Luettu 2.10.2026.    
-Karvinen, T. Sovellusten hakkerointi - https://terokarvinen.com/application-hacking/. Luettu 2.10.2026.    
-Python ord() and chr(): Convert Characters and ASCII - https://www.digitalocean.com/community/tutorials/python-ord-chr. Luettu 2.10.2026.    
+Hammond, GHIDRA for Reverse Engineering - https://www.youtube.com/watch?v=oTD_ki86c9I. Katsottu 3.10.2026.   
+echo "#!" fails -- "event not found" - https://stackoverflow.com/questions/11816122/echo-fails-event-not-found. Luettu 2.10.2026.    
+Understanding Branch Control Instructions in 8086: JMP, JNZ, and LOOP Explained - https://magica.com/youtube-summarizer/understanding-branch-control-instructions-in-8086-jmp-jnz-and-loop-explained-_IW0stOy1Cs. Luettu 2.10.2026.     
+What causes bquote prompt? - https://labex.io/questions/what-causes-bquote-prompt-504238. Luettu 2.10.2026.        
+Karvinen, T. Sovellusten hakkerointi - https://terokarvinen.com/application-hacking/. Luettu 2.10.2026.      
+Python ord() and chr(): Convert Characters and ASCII - https://www.digitalocean.com/community/tutorials/python-ord-chr. Luettu 2.10.2026.      
 Claude AI hyödynnetty koodien ymmärtämisessä ja vinkkien antamisessa. 
 
 
